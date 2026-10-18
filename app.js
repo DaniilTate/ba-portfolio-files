@@ -236,8 +236,9 @@ function a2(path) {
 
 function a3(path) {
   const a = D.a3;
-  const pptx = file('assignments/KNIAZEV_AIB-2602_BA2026_A3_PhotoEssay.pptx');
-  const evid = file('assignments/KNIAZEV_AIB-2602_BA2026_A3_Evidence.pdf');
+  // served from this site, so the download works in every browser
+  const pptx = '/files/KNIAZEV_AIB-2602_BA2026_A3_PhotoEssay.pptx';
+  const evid = '/files/KNIAZEV_AIB-2602_BA2026_A3_Evidence.pdf';
   const kit = [
     ['/records/week-6', 'Week 6 · Human-only versus AI-supported marketing comparison', 'Record 6'],
     ['/records/week-7', 'Week 7 · AI and data workflow with a governance risk register', 'Record 7'],
@@ -247,7 +248,7 @@ function a3(path) {
     <p class="crumbs"><a href="/assignments" data-link>Assignments</a> / A3</p>
     <h1 class="h1">Photo essay</h1>
     <dl class="meta"><dt>Assignment</dt><dd>Assignment 3, second attestation, due Week 7</dd><dt>Question</dt><dd>How are customer, AI, technology and data systems reshaping the way Carrefour and Magnum create and deliver value, and how should Magnum govern those systems?</dd><dt>Develops</dt><dd><a href="/records/week-6" data-link>Record 6</a> and <a href="/records/week-7" data-link>Record 7</a></dd><dt>Length</dt><dd>${a.visuals.length} visuals, ${a.words}-word commentary</dd><dt>Companies</dt><dd>Company A: Carrefour. Company B: Magnum Cash&amp;Carry</dd></dl>
-    ${FILES ? `<div class="actions no-print"><a class="btn btn--ink" href="${pptx}" download>Download essay PPTX</a><a class="btn" href="${evid}" target="_blank" rel="noopener">Open evidence PDF</a></div>` : ''}
+    ${FILES ? `<div class="actions no-print"><a class="btn btn--ink" href="${pptx}" download="KNIAZEV_AIB-2602_BA2026_A3_PhotoEssay.pptx">Download essay PPTX</a><a class="btn" href="${evid}" target="_blank" rel="noopener">Open evidence PDF</a></div>` : ''}
   </div></section>
   <div class="wrap doc">
     <aside class="doc__toc no-print"><p>On this page</p><ol><li><a href="#claim">Claim</a></li>${a.visuals.map((v) => `<li><a href="#visual-${v.n}">Visual ${v.n}</a></li>`).join('')}<li><a href="#kit">Submitted with the essay</a></li><li><a href="#refs">References</a></li></ol></aside>
