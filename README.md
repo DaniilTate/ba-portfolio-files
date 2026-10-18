@@ -1,3 +1,3 @@
-# Site content
+# E-portfolio site source
 
-`content.json` holds the text of https://kniazev-daniil-portfolio.vercel.app (records, assignments, Evidence Folder). The site build downloads it from this branch and checks its SHA-1 before publishing.
+Source of https://kniazev-daniil-portfolio.vercel.app: `index.html`, `app.js`, `styles.css`, `config.json` and `content.json` (records, assignments, Evidence Folder). The Vercel build downloads this branch at a pinned commit and checks it before publishing. Documents and media live on the `main` branch.
