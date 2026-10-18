@@ -256,7 +256,7 @@ function a3(path) {
       <p class="claim" style="font-size:21px;line-height:1.5;font-weight:500">${inline(a.claim)}</p>
       ${a.visuals.map((v) => `<h2 class="field" id="visual-${v.n}"><span class="field__n">${v.n}</span>${esc(v.title)}</h2>
       <p class="note">${esc(v.section)}</p>
-      ${FILES ? `<figure class="vis" style="margin:8px 0 22px;max-width:980px"><img style="display:block;width:100%;height:auto;border:1.5px solid var(--ink);background:var(--paper)" src="${file(v.img)}" alt="Visual ${v.n}: ${esc(v.title)}" width="2000" height="1280" loading="lazy" decoding="async"></figure>` : ''}
+      ${FILES ? `<figure class="vis" style="margin:8px 0 22px;max-width:980px"><img style="display:block;width:100%;height:auto;border:1.5px solid var(--ink);background:var(--paper)" src="${file(v.img)}" alt="Visual ${v.n}: ${esc(v.title)}" width="${v.w || 2000}" height="${v.h || 1280}" loading="lazy" decoding="async"></figure>` : ''}
       <p>${inline(v.comment)}</p>`).join('')}
       <h2 class="field" id="kit"><span class="field__n">+</span>Submitted with the essay</h2>
       <ul class="kit">${kit.map(([h, t, s]) => `<li><a href="${h}" data-link><span>${t}</span><small>${s}</small></a></li>`).join('')}${FILES ? `<li><a href="${pptx}" download><span>Photo essay</span><small>PPTX, ${a.visuals.length + 1} slides · download</small></a></li><li><a href="${evid}" target="_blank" rel="noopener"><span>Evidence file</span><small>PDF: Evidence Folder, Week 6–7 artifacts, data · open</small></a></li>` : ''}</ul>
