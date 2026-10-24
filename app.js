@@ -89,7 +89,7 @@ function receipt() {
     ${r('Student', 'Kniazev Daniil')}${r('Group', 'AIB-2602')}${r('Company B', 'Magnum Cash&amp;Carry')}${r('Company A', 'Carrefour')}
     <hr class="receipt__rule">
     ${D.weeks.slice(0, 9).map((w) => r(`W${pad(w.n)} ${esc(w.short)}`, w.status === 'filed' ? 'Filed' : 'Revising', w.status === 'filed' ? `/records/week-${w.n}` : null)).join('')}
-    ${r('W10 Integration', 'Upcoming')}
+    ${r('W10 Capstone', 'Ready', '/capstone')}
     ${r('A1 Business report', 'Filed', '/assignments/business-report')}
     ${r('A2 Video essay', 'Filed', '/assignments/video-essay')}
     ${r('A3 Photo essay', 'Filed', '/assignments/photo-essay')}
@@ -122,7 +122,7 @@ function home() {
     <div>
       <h1 class="hero__name"><span>Kniazev</span><span>Daniil</span></h1>
       <p class="hero__lede">This is my e-portfolio for Business Administration at Astana IT University. For ten weeks I study one Kazakhstan company, Magnum Cash&amp;Carry, and decide where AI should help and where people must stay in charge. Carrefour is my comparison.</p>
-      <div class="hero__actions"><a class="btn btn--ink" href="/records" data-link>Read the weekly records</a><a class="btn" href="/assignments/video-essay" data-link>Watch the Assignment 2 video</a></div>
+      <div class="hero__actions"><a class="btn btn--ink" href="/records" data-link>Read the weekly records</a><a class="btn" href="/capstone" data-link>Open the Capstone</a></div>
     </div>
     ${receipt()}
   </div></section>
@@ -130,6 +130,9 @@ function home() {
   <section class="section"><div class="wrap">
     <p class="question">How should Magnum Cash&amp;Carry operate and compete in an increasingly AI-enabled business environment?</p>
     <p class="intro">Every record, assignment and source on this site builds towards this capstone question.</p>
+    ${D.cap ? `<div class="card" style="border:2px solid var(--ink);padding:24px 28px;margin:8px 0 28px;background:var(--tag)"><p style="font:600 14px/1 var(--mono);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">Final recommendation</p><p style="font-size:22px;line-height:1.45;margin:0">${inline(D.cap.recommendation)}</p></div>
+    <div class="pair" style="grid-template-columns:repeat(3,1fr)">${D.cap.points.map(([h, t]) => `<div class="ctag"><h2 class="ctag__name" style="font-size:44px">${esc(h)}</h2><p>${inline(t)}</p></div>`).join('')}</div>
+    <p style="margin-top:20px"><a href="/capstone" data-link>Open the Capstone: deck, report and roadmap</a></p>` : ''}
     <div class="pair">
       <div class="ctag ctag--b"><p class="ctag__role">Company B, the one I advise</p><h2 class="ctag__name">Magnum Cash&amp;Carry</h2>
         <p>A Kazakhstan retailer that also serves business customers through wholesale. The company reports more than 200 stores <a class="cite" href="/evidence#s3" data-link>[3]</a>.</p></div>
@@ -163,6 +166,7 @@ function home() {
 }
 
 /* ---------- assignments ---------- */
+const devnote = (id) => (D.devnotes && D.devnotes[id] ? `<section class="refs" style="margin:0 0 28px;padding:20px 24px;border:2px solid var(--ink);background:var(--shelf)"><h2 style="margin-top:0">What changed since</h2><ol>${D.devnotes[id].map((t) => `<li style="grid-template-columns:1fr"><span>${inline(t)}</span></li>`).join('')}</ol></section>` : '');
 const ASSIGN = [
   ['A1', 'Business report', 'Week 3', 'Records 1–3', 'filed', 'Individual written report with IEEE references and an individual defence. Submitted on 22 September 2026.', '/assignments/business-report'],
   ['A2', 'Video essay', 'Week 5', 'Records 3–5', 'filed', 'A 3:43 video with a 463-word script on the human–AI operating model for Magnum: who approves, who reviews AI output, where problems escalate and what happens when the system fails.', '/assignments/video-essay'],
@@ -189,7 +193,7 @@ function a1(path) {
   </div></section>
   <div class="wrap doc">
     <aside class="doc__toc no-print"><p>Sections</p><ol>${a.blocks.filter((b) => b[0] === 'h').map(([, v]) => { const m = v.match(/^(\d)\.?\s+(.*)$/); return `<li><a href="#field-${m[1]}">${esc(v)}</a></li>`; }).join('')}<li><a href="#refs">References</a></li></ol></aside>
-    <article class="prose">${blocks(a.blocks, 'a1')}
+    <article class="prose">${devnote('A1')}${blocks(a.blocks, 'a1')}
       <p class="note">The appendix submitted with this report carries forward the three artifacts: the environment and AI opportunity map (<a href="/records/week-1" data-link>Week 1</a>), the stakeholder and AI ethics map (<a href="/records/week-2" data-link>Week 2</a>) and the AI Business Model Stress Test (<a href="/records/week-3" data-link>Week 3</a>).</p>
       <section class="refs" id="refs"><h2>References</h2><ol>${a.refs.map((r) => { const m = r.match(/^\[(\d+)\]\s*(.*)$/); return `<li id="ref-${m[1]}"><b>[${m[1]}]</b><span>${linkify(m[2])}</span></li>`; }).join('')}</ol></section>
     </article>
@@ -224,7 +228,7 @@ function a2(path) {
   </div></section>
   <div class="wrap doc">
     <aside class="doc__toc no-print"><p>On this page</p><ol><li><a href="#script">Script</a></li><li><a href="#kit">Submitted with the video</a></li><li><a href="#refs">References</a></li></ol></aside>
-    <article class="prose">
+    <article class="prose">${devnote('A2')}
       <h2 class="field" id="script"><span class="field__n">S</span>Script</h2>
       <p class="note">The spoken text, ${a.words} words.${video ? ' Each timestamp jumps the video to that line.' : ''}</p>
       ${a.chapters.map((c) => `<h3>${esc(c.title)}</h3><p class="script">${c.lines.map(([t, x]) => `${video ? `<button class="ts" data-seek="${t}" aria-label="Play from ${mmss(t)}">${mmss(t)}</button> ` : ''}${inline(x)}`).join(' ')}</p>`).join('')}
@@ -254,7 +258,7 @@ function a3(path) {
   </div></section>
   <div class="wrap doc">
     <aside class="doc__toc no-print"><p>On this page</p><ol><li><a href="#claim">Claim</a></li>${a.visuals.map((v) => `<li><a href="#visual-${v.n}">Visual ${v.n}</a></li>`).join('')}<li><a href="#kit">Submitted with the essay</a></li><li><a href="#refs">References</a></li></ol></aside>
-    <article class="prose">
+    <article class="prose">${devnote('A3')}
       <h2 class="field" id="claim"><span class="field__n">C</span>Claim</h2>
       <p class="claim" style="font-size:21px;line-height:1.5;font-weight:500">${inline(a.claim)}</p>
       ${a.visuals.map((v) => `<h2 class="field" id="visual-${v.n}"><span class="field__n">${v.n}</span>${esc(v.title)}</h2>
@@ -286,7 +290,7 @@ function a4(path) {
   </div></section>
   <div class="wrap doc">
     <aside class="doc__toc no-print"><p>Sections</p><ol>${a.sections.map(([t]) => `<li><a href="#${slug(t)}">${esc(t)}</a></li>`).join('')}<li><a href="#kit">Submitted with the essay</a></li><li><a href="#refs">References</a></li></ol></aside>
-    <article class="prose">
+    <article class="prose">${devnote('A4')}
       ${a.sections.map(([t, paras], i) => `<h2 class="field" id="${slug(t)}"><span class="field__n">${i + 1}</span>${esc(t)}</h2>${paras.map((p) => `<p>${inline(p)}</p>`).join('')}`).join('')}
       <h2 class="field" id="kit"><span class="field__n">+</span>Submitted with the essay</h2>
       <ul class="kit">${kit.map(([h, t, s]) => `<li><a href="${h}" data-link><span>${t}</span><small>${s}</small></a></li>`).join('')}${FILES ? `<li><a href="${file(base + 'Appendix.pdf')}" target="_blank" rel="noopener"><span>Appendix</span><small>PDF: Week 8 calculations and discrepancy audit, Week 9 capability map · open</small></a></li><li><a href="${file(base + 'Evidence_Folder.pdf')}" target="_blank" rel="noopener"><span>Evidence Folder</span><small>PDF: running IEEE list current to Week 9 · open</small></a></li>` : ''}</ul>
@@ -335,7 +339,25 @@ const CAP = [
   ['§7', 'Business case and KPIs', 8], ['§8', '12-month roadmap', 10], ['§9', 'Strategic transfer stress test', 10],
 ];
 function capstone(path) {
-  return page(path, phead('', 'Capstone', 'The final exam, worth 40% of the course. It integrates the nine sections below with a 12-month roadmap and a transfer stress test, and it is defended orally.') + `
+  const k = D.cap;
+  const base = 'capstone/KNIAZEV_AIB-2602_BA2026_Capstone_';
+  const files = FILES && k ? [
+    [file(base + 'Deck.pdf'), 'Business Impact Deck', 'PDF, 16:9, 16 content slides · open'],
+    [file(base + 'Report.pdf'), 'Executive Summary Report', 'PDF, 5–7 pages plus appendices · open'],
+    [file(base + 'Report.docx'), 'Executive Summary Report', 'DOCX · download'],
+    [file(base + 'Evidence.pdf'), 'Evidence Folder', `PDF, complete IEEE list, ${D.evidence.length} sources · open`],
+    [file('capstone/KNIAZEV_AIB-2602_BA2026_Weekly_Records_1-9.pdf'), 'Weekly Records 1–9', 'PDF, one file · open'],
+  ] : [];
+  const rm = k ? `<table class="sheet__body" style="width:100%;border-collapse:collapse;font-size:16px"><tr>${['Months', 'Action', 'Owner', 'Decision gate'].map((h) => `<th style="text-align:left;border-bottom:2px solid var(--ink);padding:8px">${h}</th>`).join('')}</tr>${k.roadmap.map((r) => `<tr>${r.map((c) => `<td style="border-bottom:1px solid var(--rule);padding:8px;vertical-align:top">${inline(c)}</td>`).join('')}</tr>`).join('')}</table>` : '';
+  return page(path, phead('', 'Capstone', 'The final exam, worth 40% of the course: one recommendation for Magnum, expressed as a deck, a report and a video, with a 12-month roadmap and a live stress test at the defence.') + `
+  ${k ? `<section class="section"><div class="wrap">
+    <div class="card" style="border:2px solid var(--ink);padding:26px 30px;background:var(--tag)"><p style="font:600 14px/1 var(--mono);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">Recommendation · prepared ${esc(k.prepared)}, submitted in Week 10</p><p style="font-size:23px;line-height:1.45;margin:0">${inline(k.recommendation)}</p></div>
+    <ul class="kit" style="margin-top:28px">${files.map(([h, t, s2]) => `<li><a href="${h}" ${h.endsWith('.docx') ? 'download' : 'target="_blank" rel="noopener"'}><span>${t}</span><small>${s2}</small></a></li>`).join('')}<li><div style="padding:14px 0"><span>Video presentation</span><small> 10–15 minutes · script ready, recording in progress</small></div></li></ul>
+  </div></section>
+  <section class="section section--shelf"><div class="wrap">
+    <div class="section__head"><div><h2 class="h2">12-month roadmap</h2><p class="intro">Nine gated initiatives. Every initiative also has a KPI with baseline and target, a dependency, a cost basis and a risk control; the deck and report carry all seven elements.</p></div></div>
+    ${rm}
+  </div></section>` : ''}
   <section class="section"><div class="wrap">
     <div class="weights">
       <div><b>40%</b><h3>E-portfolio and impact deck</h3><p>This site, developed into the AI-enabled business impact deck. A3 is the visual starting point.</p></div>
@@ -348,13 +370,12 @@ function capstone(path) {
     <div class="section__head"><div><h2 class="h2">Nine sections</h2><p class="intro">Each section grows out of a weekly record. Developed into, not pasted into.</p></div></div>
     <ol class="rows">${CAP.map(([id, t, wk]) => {
       const w = D.weeks.find((x) => x.n === wk);
-      const st = wk === 10 ? 'upcoming' : w.status;
-      const src = wk === 10 ? 'Integration week' : `Grows from Week ${wk}: ${w.artifact}`;
-      const inner = `<span class="row__n" style="font-size:56px">${id}</span><div><h3>${t}</h3><p>${esc(src)}</p></div>${status(st === 'filed' ? 'filed' : st)}`;
-      return `<li class="row is-${st}">${st === 'filed' ? `<a href="/records/week-${wk}" data-link>${inner}</a>` : `<div>${inner}</div>`}</li>`;
+      const st = wk === 10 ? (k ? 'filed' : 'upcoming') : w.status;
+      const src = wk === 10 ? 'New at Capstone stage: in the deck (slides 14 and 17) and report (§8, §9)' : `Grows from Week ${wk}: ${w.artifact}`;
+      const inner = `<span class="row__n" style="font-size:56px">${id}</span><div><h3>${t}</h3><p>${esc(src)}</p></div>${status(st)}`;
+      return `<li class="row is-${st}">${st === 'filed' && wk !== 10 ? `<a href="/records/week-${wk}" data-link>${inner}</a>` : `<div>${inner}</div>`}</li>`;
     }).join('')}</ol>
-  </div></section>
-  <section class="section"><div class="wrap"><div class="placeholder"><strong>Deliverables appear here in Week 10.</strong> The impact deck, executive summary report and video presentation will be published on this page after the capstone submission.</div></div></section>`);
+  </div></section>`);
 }
 
 /* ---------- companies ---------- */
@@ -388,13 +409,13 @@ function companies(path) {
 
 /* ---------- evidence ---------- */
 function evidence(path) {
-  const tags = ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'A1', 'A2', 'A3', 'A4'];
-  return page(path, phead('', 'Evidence folder', `Every number in the records points here. The folder grows as the weeks add sources and never shrinks. Current to Week 9: ${D.evidence.length} sources.`) + `
+  const tags = ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'A1', 'A2', 'A3', 'A4', 'Capstone'];
+  return page(path, phead('', 'Evidence folder', `Every number in the records points here. The folder grows as the weeks add sources and never shrinks. Complete for Weeks 1–10: ${D.evidence.length} sources.`) + `
   <section class="section"><div class="wrap">
-    <div class="filters" role="group" aria-label="Filter sources"><button aria-pressed="true" data-f="all">All</button>${tags.map((t) => `<button aria-pressed="false" data-f="${t}">${t.startsWith('W') ? 'Week ' + t.slice(1) : 'Assignment ' + t.slice(1)}</button>`).join('')}</div>
+    <div class="filters" role="group" aria-label="Filter sources"><button aria-pressed="true" data-f="all">All</button>${tags.map((t) => `<button aria-pressed="false" data-f="${t}">${t === 'Capstone' ? 'Capstone' : t.startsWith('W') ? 'Week ' + t.slice(1) : 'Assignment ' + t.slice(1)}</button>`).join('')}</div>
     <ol class="elist">${D.evidence.map((e) => `<li class="eitem" id="s${e.n}" data-cited="${e.cited.join(' ')}"><span class="eitem__n">${e.n}</span>
       <div><p>${esc(e.text)}</p>${e.url ? `<a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.url.replace(/^https?:\/\//, '').slice(0, 80))}${e.url.length > 88 ? '…' : ''}</a>` : '<span class="muted" style="font-size:15px">Link recorded in the submitted Evidence Folder</span>'}</div>
-      <div class="chips">${e.cited.map((t) => `<span class="chip${t[0] === 'A' ? ' chip--a' : ''}">${t}</span>`).join('')}</div></li>`).join('')}
+      <div class="chips">${e.cited.map((t) => `<span class="chip${t[0] === 'A' || t === 'Capstone' ? ' chip--a' : ''}">${t === 'Capstone' ? 'Cap' : t}</span>`).join('')}</div></li>`).join('')}
       <li class="eitem" data-cited="A1"><span class="eitem__n">+</span><div><p>${esc(D.extra.text)} Cited in Assignment 1 as [${D.extra.n_a1}].</p><a href="${esc(D.extra.url)}" target="_blank" rel="noopener">${esc(D.extra.url.replace(/^https?:\/\//, ''))}</a></div><div class="chips"><span class="chip chip--a">A1</span></div></li>
     </ol>
   </div></section>`);
