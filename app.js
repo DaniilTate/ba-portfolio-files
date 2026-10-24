@@ -8,6 +8,7 @@ const DOCS = {
   1: 'records/KNIAZEV_AIB-2602_Weekly_Record_1', 2: 'records/KNIAZEV_AIB-2602_Weekly_Record_2', 3: 'records/KNIAZEV_AIB-2602_Weekly_Record_3',
   4: 'records/KNIAZEV_AIB-2602_Weekly_Record_4', 5: 'records/KNIAZEV_AIB-2602_Weekly_Record_5',
   6: 'records/KNIAZEV_AIB-2602_Weekly_Record_6', 7: 'records/KNIAZEV_AIB-2602_Weekly_Record_7',
+  8: 'records/KNIAZEV_AIB-2602_Weekly_Record_8', 9: 'records/KNIAZEV_AIB-2602_Weekly_Record_9',
 };
 const PDF_ONLY = new Set([6, 7]); // these records are published as PDF only
 const SHEETS = { 5: 'records/KNIAZEV_AIB-2602_Week5_Process_Map' };
@@ -87,11 +88,12 @@ function receipt() {
     <hr class="receipt__rule">
     ${r('Student', 'Kniazev Daniil')}${r('Group', 'AIB-2602')}${r('Company B', 'Magnum Cash&amp;Carry')}${r('Company A', 'Carrefour')}
     <hr class="receipt__rule">
-    ${D.weeks.slice(0, 7).map((w) => r(`W${pad(w.n)} ${esc(w.short)}`, w.status === 'filed' ? 'Filed' : 'Revising', w.status === 'filed' ? `/records/week-${w.n}` : null)).join('')}
-    ${r('W08–W10', 'Upcoming')}
+    ${D.weeks.slice(0, 9).map((w) => r(`W${pad(w.n)} ${esc(w.short)}`, w.status === 'filed' ? 'Filed' : 'Revising', w.status === 'filed' ? `/records/week-${w.n}` : null)).join('')}
+    ${r('W10 Integration', 'Upcoming')}
     ${r('A1 Business report', 'Filed', '/assignments/business-report')}
     ${r('A2 Video essay', 'Filed', '/assignments/video-essay')}
     ${r('A3 Photo essay', 'Filed', '/assignments/photo-essay')}
+    ${r('A4 Argumentative essay', 'Filed', '/assignments/argumentative-essay')}
     <hr class="receipt__rule">
     <div class="receipt__total">${r('Records filed', `${filed} / 9`)}${r('Sources in folder', D.evidence.length)}${r('Verdicts issued', 5)}</div>
     <hr class="receipt__rule">
@@ -165,7 +167,7 @@ const ASSIGN = [
   ['A1', 'Business report', 'Week 3', 'Records 1–3', 'filed', 'Individual written report with IEEE references and an individual defence. Submitted on 22 September 2026.', '/assignments/business-report'],
   ['A2', 'Video essay', 'Week 5', 'Records 3–5', 'filed', 'A 3:43 video with a 463-word script on the human–AI operating model for Magnum: who approves, who reviews AI output, where problems escalate and what happens when the system fails.', '/assignments/video-essay'],
   ['A3', 'Photo essay', 'Week 7', 'Records 6–7', 'filed', 'Ten curated visuals with a 487-word commentary on how customer, AI and data systems reshape value at Magnum, and how Magnum should govern them.', '/assignments/photo-essay'],
-  ['A4', 'Argumentative essay', 'Week 9', 'Records 8–9', 'upcoming', '800–1000 words with a counterargument. It becomes the capstone recommendation.'],
+  ['A4', 'Argumentative essay', 'Week 9', 'Records 8–9', 'filed', 'A 915-word essay on whether AI will make business graduates more valuable, argued from the Week 8 ratio audit and the Week 9 capability map, with the strongest counterargument answered.', '/assignments/argumentative-essay'],
 ];
 function assignmentRows() {
   return `<ol class="rows">${ASSIGN.map(([id, t, wk, dev, st, d, href]) => {
@@ -267,6 +269,33 @@ function a3(path) {
   </div>`);
 }
 
+function a4(path) {
+  const a = D.a4;
+  const base = 'assignments/KNIAZEV_AIB-2602_BA2026_A4_';
+  const kit = [
+    ['/records/week-8', 'Week 8 · Ratio calculation versus AI interpretation, with a discrepancy audit', 'Record 8'],
+    ['/records/week-9', 'Week 9 · Career Capability Portfolio and workforce implications', 'Record 9'],
+    ['/evidence', 'Evidence Folder', `${D.evidence.length} numbered sources`],
+  ];
+  const slug = (t) => t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  return page(path, `<section class="phead"><div class="wrap">
+    <p class="crumbs"><a href="/assignments" data-link>Assignments</a> / A4</p>
+    <h1 class="h1">Argumentative essay</h1>
+    <dl class="meta"><dt>Assignment</dt><dd>Assignment 4, second attestation, due Week 9</dd><dt>Claim</dt><dd>“AI will make business graduates more valuable, not less valuable.” Discuss critically.</dd><dt>Develops</dt><dd><a href="/records/week-8" data-link>Record 8</a> and <a href="/records/week-9" data-link>Record 9</a></dd><dt>Length</dt><dd>${a.words} words, excluding title block, references and appendix</dd><dt>Companies</dt><dd>Company A: Carrefour. Company B: Magnum Cash&amp;Carry</dd></dl>
+    <div class="actions no-print"><button class="btn btn--ink" data-print>Save as PDF</button>${dl(base + 'Essay', 'Essay')}${dl(base + 'Appendix', 'Appendix')}</div>
+  </div></section>
+  <div class="wrap doc">
+    <aside class="doc__toc no-print"><p>Sections</p><ol>${a.sections.map(([t]) => `<li><a href="#${slug(t)}">${esc(t)}</a></li>`).join('')}<li><a href="#kit">Submitted with the essay</a></li><li><a href="#refs">References</a></li></ol></aside>
+    <article class="prose">
+      ${a.sections.map(([t, paras], i) => `<h2 class="field" id="${slug(t)}"><span class="field__n">${i + 1}</span>${esc(t)}</h2>${paras.map((p) => `<p>${inline(p)}</p>`).join('')}`).join('')}
+      <h2 class="field" id="kit"><span class="field__n">+</span>Submitted with the essay</h2>
+      <ul class="kit">${kit.map(([h, t, s]) => `<li><a href="${h}" data-link><span>${t}</span><small>${s}</small></a></li>`).join('')}${FILES ? `<li><a href="${file(base + 'Appendix.pdf')}" target="_blank" rel="noopener"><span>Appendix</span><small>PDF: Week 8 calculations and discrepancy audit, Week 9 capability map · open</small></a></li><li><a href="${file(base + 'Evidence_Folder.pdf')}" target="_blank" rel="noopener"><span>Evidence Folder</span><small>PDF: running IEEE list current to Week 9 · open</small></a></li>` : ''}</ul>
+      <section class="refs" id="refs"><h2>References</h2><ol>${a.refs.map(([n, t]) => `<li><b><a class="cite" href="/evidence#s${n}" data-link>[${n}]</a></b><span>${esc(t)}</span></li>`).join('')}</ol>
+      <p class="note">Numbers follow the cumulative Evidence Folder, so they differ from the numbering inside the submitted essay.</p></section>
+    </article>
+  </div>`);
+}
+
 /* ---------- records ---------- */
 function records(path) {
   return page(path, phead('', 'Weekly records', 'One section a week with six fields: concept, application, verification and AI record, transfer, evidence and capstone link. Weeks 3, 5, 7 and 9 are reduced to the first two fields because their analysis moves into that week’s assignment.') +
@@ -336,12 +365,12 @@ function companies(path) {
     <article class="profile profile--b"><div class="profile__head"><p class="ctag__role">Company B, the focal organisation</p><h2 class="ctag__name">Magnum Cash&amp;Carry</h2></div>
       <div class="profile__body"><dl>
         <dt>What it does</dt><dd>Kazakhstan retailer serving households, and businesses through wholesale ${c(14)}.</dd>
-        <dt>Scale</dt><dd>More than 200 stores, company statement of 1 July 2026 ${c(3)}.</dd>
+        <dt>Scale</dt><dd>More than 200 stores, company statement of 1 July 2026 ${c(3)}. Revenue of 453.13 billion tenge and 9,599 employees in 2024 ${c(31)}.</dd>
         <dt>Ownership</dt><dd>Limited liability partnership (ТОО) ${c(15)}. Participants generally risk their contributions; the general meeting is the highest body ${c(18)}. Beneficial owners are not established by my sources.</dd>
-        <dt>Region</dt><dd>Entered Uzbekistan in 2021 ${c(14)}.</dd>
+        <dt>Region</dt><dd>Entered Uzbekistan in 2021 ${c(14)}; reported to be winding down its stores there in June 2025 ${c(34)}.</dd>
         <dt>Digital today</dt><dd>Magnum Club loyalty app with bonuses and personalised offers; its privacy policy lists purchase and location data ${c(15)}. This does not establish AI deployment.</dd>
         <dt>Rules</dt><dd>Corporate rules on customer safety, supplier selection, product acceptance and reporting ${c(22)}.</dd>
-        <dt>What I still need</dt><dd><ul><li>The detailed replenishment workflow, which is not public</li><li>Stock-record accuracy and forecast performance</li><li>Audited financial data for the Week 8 ratios</li></ul></dd>
+        <dt>What I still need</dt><dd><ul><li>The detailed replenishment workflow, which is not public</li><li>Stock-record accuracy and forecast performance</li><li>Financial statements: Magnum does not publish them, so Week 8 could not calculate liquidity, profitability or debt ratios</li></ul></dd>
       </dl></div></article>
     <article class="profile"><div class="profile__head"><p class="ctag__role">Company A, the comparison</p><h2 class="ctag__name">Carrefour</h2></div>
       <div class="profile__body"><dl>
@@ -359,8 +388,8 @@ function companies(path) {
 
 /* ---------- evidence ---------- */
 function evidence(path) {
-  const tags = ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'A1', 'A2', 'A3'];
-  return page(path, phead('', 'Evidence folder', `Every number in the records points here. The folder grows as the weeks add sources and never shrinks. Current to Week 7: ${D.evidence.length} sources.`) + `
+  const tags = ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'A1', 'A2', 'A3', 'A4'];
+  return page(path, phead('', 'Evidence folder', `Every number in the records points here. The folder grows as the weeks add sources and never shrinks. Current to Week 9: ${D.evidence.length} sources.`) + `
   <section class="section"><div class="wrap">
     <div class="filters" role="group" aria-label="Filter sources"><button aria-pressed="true" data-f="all">All</button>${tags.map((t) => `<button aria-pressed="false" data-f="${t}">${t.startsWith('W') ? 'Week ' + t.slice(1) : 'Assignment ' + t.slice(1)}</button>`).join('')}</div>
     <ol class="elist">${D.evidence.map((e) => `<li class="eitem" id="s${e.n}" data-cited="${e.cited.join(' ')}"><span class="eitem__n">${e.n}</span>
@@ -406,6 +435,7 @@ function route(path) {
   if (path === '/assignments/business-report') return [a1('/assignments'), 'Assignment 1 business report'];
   if (path === '/assignments/video-essay') return [a2('/assignments'), 'Assignment 2 video essay'];
   if (path === '/assignments/photo-essay') return [a3('/assignments'), 'Assignment 3 photo essay'];
+  if (path === '/assignments/argumentative-essay') return [a4('/assignments'), 'Assignment 4 argumentative essay'];
   if (path === '/capstone') return [capstone(path), 'Capstone'];
   if (path === '/companies') return [companies(path), 'Companies'];
   if (path === '/evidence') return [evidence(path), 'Evidence folder'];
