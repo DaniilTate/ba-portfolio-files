@@ -5,6 +5,7 @@ https://kniazev-daniil-portfolio.vercel.app
 
 - `records/` weekly records (Records 1–5 and 8–9 as DOCX and PDF, Records 6–7 as PDF) and the Week 5 process-map artifact
 - `assignments/` Assignment 1 report and appendix, Assignment 2 slides, Assignment 3 photo essay (PPTX) and evidence file (PDF), Assignment 4 essay and appendix (DOCX and PDF) and Evidence Folder (PDF)
+- `capstone/` Capstone deck (PDF), executive summary report (DOCX and PDF), complete Evidence Folder and Weekly Records 1–9 in one PDF
 - `media/` Assignment 2 video essay; `media/a3/` the ten Assignment 3 visuals as they appear in the photo essay (with the crops applied in the PPTX)
 
 The Assignment 2 narration is an AI voice generated from my own voice (ElevenLabs), and the animation was produced with AI assistance (Claude). AI use is declared in each record and assignment.
