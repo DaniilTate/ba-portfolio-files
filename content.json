@@ -1232,7 +1232,7 @@
     ],
     [
      "p",
-     "Magnum Cash&Carry is a private partnership and, unlike Carrefour, publishes no balance sheet or income statement that I could find. Its only public financial data are Forbes Kazakhstan’s rankings of the largest private companies, which give revenue and headcount but list net profit as “no data” [31], [32]. I therefore calculated the ratios these data allow, compared them with an AI-supported interpretation of Forbes’s Magnum profile [33], and audited every difference."
+     "Magnum Cash&Carry is a private partnership and, unlike Carrefour [48], publishes no current balance sheet or income statement. The last statements I found date from 2016, when Magnum had bonds listed on the Kazakhstan Stock Exchange: the bondholders’ representative report for the first half of 2016 gives a current ratio of 1.13 (16.52 / 14.61 bn ₸) and a debt-to-equity ratio of 2.53 (38.81 / 15.36 bn ₸) [47]. By December 2016 Magnum had left the exchange [49], so these ratios are ten years old and describe the company before its Uzbekistan entry and the Kaspi deal; I treat them as history, not as a 2024 baseline. Its only recent public financial data are Forbes Kazakhstan’s rankings of the largest private companies, which give revenue and headcount but list net profit as “no data” [31], [32]. I therefore calculated the ratios these data allow, compared them with an AI-supported interpretation of Forbes’s Magnum profile [33], and audited every difference."
     ],
     [
      "cap",
@@ -1266,7 +1266,7 @@
     ],
     [
      "p",
-     "Real change deflates 2024 revenue by 8.6% annual inflation [35]. Liquidity, profitability, activity and debt ratios cannot be calculated without a balance sheet and income statement."
+     "Real change deflates 2024 revenue by 8.6% annual inflation [35]. Liquidity, profitability, activity and debt ratios cannot be calculated for 2024 without a current balance sheet and income statement; the 2016 ratios [47] are not a substitute."
     ],
     [
      "cap",
@@ -1317,7 +1317,7 @@
     ],
     [
      "p",
-     "What did I check? The fiscal year behind Magnum’s revenue of 453.13 billion tenge. Against which source? The methodology of Forbes’s 2025 ranking, which ranks companies by 2024 revenue and was prepared with Adata.kz [31]. What did I find? The company profile labels the same figure “2025” [33], so a comparison with annual inflation would have been one year out. I also checked the 10,000 headcount against Magnum’s careers site, which uses the same round number for the whole company [36], and took 2024 inflation of 8.6% from the Bureau of National Statistics as reported by BES.media [35]. Magnum’s exit from Uzbekistan in 2025 [34] and Kaspi’s 2023 purchase of Magnum’s e-commerce business [31] may change what later figures cover; without statements I cannot measure that effect."
+     "What did I check? The fiscal year behind Magnum’s revenue of 453.13 billion tenge. Against which source? The methodology of Forbes’s 2025 ranking, which ranks companies by 2024 revenue and was prepared with Adata.kz [31]. What did I find? The company profile labels the same figure “2025” [33], so a comparison with annual inflation would have been one year out. I also checked the 10,000 headcount against Magnum’s careers site, which uses the same round number for the whole company [36], and took 2024 inflation of 8.6% from the Bureau of National Statistics as reported by BES.media [35]. Magnum’s exit from Uzbekistan in 2025 [34] and Kaspi’s 2023 purchase of Magnum’s e-commerce business [31] may change what later figures cover; without current statements I cannot measure that effect."
     ],
     [
      "h",
@@ -1354,7 +1354,10 @@
     "[35] BES.media, “8,6 вместо 6–8%: инфляция в Казахстане превысила ожидания,” Jan. 5, 2025.",
     "[36] Magnum Cash&Carry, “Magnum HR,” careers website, n.d. Accessed: Oct. 24, 2026.",
     "[37] Vusion and Carrefour, “Carrefour and Vusion join forces to deploy the smart store at scale,” press release, Feb. 18, 2026.",
-    "[38] S. Lauchlan, “How Carrefour is following Walmart’s lead as its 2030 AI-enabled transformation kicks in,” diginomica, Feb. 23, 2026."
+    "[38] S. Lauchlan, “How Carrefour is following Walmart’s lead as its 2030 AI-enabled transformation kicks in,” diginomica, Feb. 23, 2026.",
+    "[47] Centras Securities, “Отчет представителя держателей облигаций ТОО “Magnum Cash&Carry”,” Kazakhstan Stock Exchange, Jul. 28, 2016.",
+    "[48] Carrefour, “Q4 2025 sales and FY 2025 results,” press release, Feb. 17, 2026.",
+    "[49] Forbes Kazakhstan, “Где Magnum нашел деньги на развитие и почему ушел с биржи?,” Dec. 28, 2016."
    ]
   },
   {
@@ -1409,7 +1412,7 @@
       [
        "Human Only: approve the final order",
        "Accountability; supplier negotiation",
-       "Budget, margin and shelf life; reading the Week 8 ratios",
+       "Budget, margin and shelf life; reading the Week 8 ratios, such as the 2016 current ratio of 1.13 [47]",
        "Forecast-error dashboards",
        "Deciding under uncertainty and explaining it",
        "High: authority stays with a named person [16]"
@@ -1460,7 +1463,8 @@
     "[37] Vusion and Carrefour, “Carrefour and Vusion join forces to deploy the smart store at scale,” press release, Feb. 18, 2026.",
     "[40] P. Gmyrek et al., “Generative AI and jobs: A refined global index of occupational exposure,” ILO Working Paper 140, May 2025.",
     "[41] World Economic Forum, “The Future of Jobs Report 2025,” Jan. 2025.",
-    "[42] 24.kz, “Базовый курс по ИИ завершили около 650 тысяч казахстанских студентов,” May 16, 2025."
+    "[42] 24.kz, “Базовый курс по ИИ завершили около 650 тысяч казахстанских студентов,” May 16, 2025.",
+    "[47] Centras Securities, “Отчет представителя держателей облигаций ТОО “Magnum Cash&Carry”,” Kazakhstan Stock Exchange, Jul. 28, 2016."
    ]
   },
   {

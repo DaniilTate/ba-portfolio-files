@@ -387,7 +387,7 @@ function companies(path) {
         <dt>Region</dt><dd>Entered Uzbekistan in 2021 ${c(14)}; reported to be winding down its stores there in June 2025 ${c(34)}.</dd>
         <dt>Digital today</dt><dd>Magnum Club loyalty app with bonuses and personalised offers; its privacy policy lists purchase and location data ${c(15)}. This does not establish AI deployment.</dd>
         <dt>Rules</dt><dd>Corporate rules on customer safety, supplier selection, product acceptance and reporting ${c(22)}.</dd>
-        <dt>What I still need</dt><dd><ul><li>The detailed replenishment workflow, which is not public</li><li>Stock-record accuracy and forecast performance</li><li>Financial statements: Magnum does not publish them, so Week 8 could not calculate liquidity, profitability or debt ratios</li></ul></dd>
+        <dt>What I still need</dt><dd><ul><li>The detailed replenishment workflow, which is not public</li><li>Stock-record accuracy and forecast performance</li><li>Current financial statements: Magnum does not publish them. The last public figures are its 2016 bond reports ${c(47)}, ten years old, so Week 8 could not calculate ratios for 2024</li></ul></dd>
       </dl></div></article>
     <article class="profile"><div class="profile__head"><p class="ctag__role">Company A, the comparison</p><h2 class="ctag__name">Carrefour</h2></div>
       <div class="profile__body"><dl>
