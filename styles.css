@@ -153,6 +153,12 @@ p { margin: 0 0 1em; }
 .crumbs a { color: var(--ink); }
 .h1 { font: 900 clamp(60px, 10vw, 150px)/.85 var(--display); text-transform: uppercase; letter-spacing: -.01em; margin-bottom: 20px; }
 .phead .intro { margin: 0; }
+.phead--photo { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: clamp(16px, 4vw, 48px); }
+.phead--photo .portrait { justify-self: center; }
+@media (max-width: 760px) { .phead--photo { grid-template-columns: minmax(0, 1fr) auto; } .phead--photo .portrait { justify-self: end; } }
+.phead--photo .h1 { margin-bottom: 0; }
+.portrait { margin: 0; width: clamp(104px, 16vw, 200px); border: 2px solid var(--ink); box-shadow: 8px 8px 0 var(--tag); background: var(--paper); }
+.portrait img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; }
 
 /* record header */
 .rhead { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: start; }

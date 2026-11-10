@@ -418,7 +418,8 @@ function evidence(path) {
 
 /* ---------- about ---------- */
 function about(path) {
-  return page(path, phead('', 'About me', '') + `
+  return page(path, `<section class="phead"><div class="wrap phead--photo"><h1 class="h1">About me</h1>
+    <figure class="portrait"><img src="/files/kniazev-daniil.jpg" alt="Portrait of Kniazev Daniil" width="354" height="472"></figure></div></section>` + `
   <section class="section"><div class="wrap about">
     <div class="prose"><p style="font-size:22px;line-height:1.5">I am Kniazev Daniil, a first-year AI Business student at Astana IT University. In Business Administration I follow one Kazakhstan company for ten weeks and test where AI can support its work without taking accountability away from people.</p>
       <p>The course works as one evidence base. Each week I build an artifact in the practice session, verify at least one claim against an independent source, and decide whether a Carrefour practice should be adopted, adapted, piloted, delayed or rejected at Magnum. Assignments compress several weeks into one argument, and the capstone integrates everything.</p>
