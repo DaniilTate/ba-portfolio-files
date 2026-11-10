@@ -143,11 +143,11 @@ function home() {
   </div></section>
 
   <section class="section section--shelf">
-    <div class="wrap section__head"><div><h2 class="h2">Ten weeks on one shelf</h2>
+    <div class="wrap section__head"><div><h2 class="h2">Nine records on one shelf</h2>
       <p class="intro">One record a week, six fields, up to 900 words and one artifact. Filed records open in full.</p></div>
       <a class="btn" href="/records" data-link>All records</a></div>
     <div class="shelf"><div class="shelf__edge"></div>
-      <ol class="shelf__rail" aria-label="Weekly records">${D.weeks.map(weekTag).join('')}</ol></div>
+      <ol class="shelf__rail" aria-label="Weekly records">${D.weeks.filter((w) => w.n !== 10).map(weekTag).join('')}</ol></div>
   </section>
 
   <section class="section"><div class="wrap">
@@ -303,7 +303,7 @@ function a4(path) {
 /* ---------- records ---------- */
 function records(path) {
   return page(path, phead('', 'Weekly records', 'One section a week with six fields: concept, application, verification and AI record, transfer, evidence and capstone link. Weeks 3, 5, 7 and 9 are reduced to the first two fields because their analysis moves into that week’s assignment.') +
-    `<section class="section"><div class="wrap"><ol class="rows">${D.weeks.map((w) => {
+    `<section class="section"><div class="wrap"><ol class="rows">${D.weeks.filter((w) => w.n !== 10).map((w) => {
       const inner = `<span class="row__n">${pad(w.n)}</span><div><h3>${esc(w.title || w.short)}</h3><p>${esc(w.topic)}</p><p class="row__meta">Artifact: ${esc(w.artifact)}. Develops capstone ${esc(w.cap)}.${w.reduced ? ' Reduced record.' : ''}</p></div>${status(w.status)}`;
       return `<li class="row is-${w.status}">${w.status === 'filed' ? `<a href="/records/week-${w.n}" data-link>${inner}</a>` : `<div>${inner}</div>`}</li>`;
     }).join('')}</ol></div></section>`);
@@ -361,14 +361,6 @@ function capstone(path) {
     <div class="section__head"><div><h2 class="h2">12-month roadmap</h2><p class="intro">Nine gated initiatives. Every initiative also has a KPI with baseline and target, a dependency, a cost basis and a risk control; the deck and report carry all seven elements.</p></div></div>
     ${rm}
   </div></section>` : ''}
-  <section class="section"><div class="wrap">
-    <div class="weights">
-      <div><b>40%</b><h3>E-portfolio and impact deck</h3><p>This site, developed into the AI-enabled business impact deck. A3 is the visual starting point.</p></div>
-      <div><b>40%</b><h3>Executive summary report</h3><p>5–7 pages in IEEE style. A1 is the starting point.</p></div>
-      <div><b>20%</b><h3>Video presentation</h3><p>10–15 minutes. A2 is the starting point.</p></div>
-      <div><b>Q&amp;A</b><h3>Individual defence</h3><p>Compulsory. Confirms the work is mine and tests a changed assumption live.</p></div>
-    </div>
-  </div></section>
   <section class="section section--shelf"><div class="wrap">
     <div class="section__head"><div><h2 class="h2">Nine sections</h2><p class="intro">Each section grows out of a weekly record. Developed into, not pasted into.</p></div></div>
     <ol class="rows">${CAP.map(([id, t, wk]) => {
