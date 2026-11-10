@@ -132,7 +132,7 @@ function home() {
     <p class="question">How should Magnum Cash&amp;Carry operate and compete in an increasingly AI-enabled business environment?</p>
     <p class="intro">Every record, assignment and source on this site builds towards this capstone question.</p>
     ${D.cap ? `<div class="card" style="border:2px solid var(--ink);padding:24px 28px;margin:8px 0 28px;background:var(--tag)"><p style="font:600 14px/1 var(--mono);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">Final recommendation</p><p style="font-size:22px;line-height:1.45;margin:0">${inline(D.cap.recommendation)}</p></div>
-    <div class="pair" style="grid-template-columns:repeat(3,1fr)">${D.cap.points.map(([h, t]) => `<div class="ctag"><h2 class="ctag__name" style="font-size:44px">${esc(h)}</h2><p>${inline(t)}</p></div>`).join('')}</div>
+    <div class="pair pair--3">${D.cap.points.map(([h, t]) => `<div class="ctag"><h2 class="ctag__name" style="font-size:44px">${esc(h)}</h2><p>${inline(t)}</p></div>`).join('')}</div>
     <p style="margin-top:20px"><a href="/capstone" data-link>Open the Capstone: deck, report and roadmap</a></p>` : ''}
     <div class="pair">
       <div class="ctag ctag--b"><p class="ctag__role">Company B, the one I advise</p><h2 class="ctag__name">Magnum Cash&amp;Carry</h2>
@@ -351,7 +351,7 @@ function capstone(path) {
     [file(base + 'Evidence.pdf'), 'Evidence Folder', `PDF, complete IEEE list, ${D.evidence.length} sources · open`],
     [file('capstone/KNIAZEV_AIB-2602_BA2026_Weekly_Records_1-9.pdf'), 'Weekly Records 1–9', 'PDF, one file · open'],
   ] : [];
-  const rm = k ? `<table class="sheet__body" style="width:100%;border-collapse:collapse;font-size:16px"><tr>${['Months', 'Action', 'Owner', 'Decision gate'].map((h) => `<th style="text-align:left;border-bottom:2px solid var(--ink);padding:8px">${h}</th>`).join('')}</tr>${k.roadmap.map((r) => `<tr>${r.map((c) => `<td style="border-bottom:1px solid var(--rule);padding:8px;vertical-align:top">${inline(c)}</td>`).join('')}</tr>`).join('')}</table>` : '';
+  const rm = k ? `<table class="sheet__body rmap" style="width:100%;border-collapse:collapse;font-size:16px"><tr>${['Months', 'Action', 'Owner', 'Decision gate'].map((h) => `<th style="text-align:left;border-bottom:2px solid var(--ink);padding:8px">${h}</th>`).join('')}</tr>${k.roadmap.map((r) => `<tr>${r.map((c, i) => `<td data-h="${['Months', 'Action', 'Owner', 'Decision gate'][i]}" style="border-bottom:1px solid var(--rule);padding:8px;vertical-align:top">${inline(c)}</td>`).join('')}</tr>`).join('')}</table>` : '';
   return page(path, phead('', 'Capstone', 'The final exam, worth 40% of the course: one recommendation for Magnum, expressed as a deck, a report and a video, with a 12-month roadmap and a live stress test at the defence.') + `
   ${k ? `<section class="section"><div class="wrap">
     <div class="card" style="border:2px solid var(--ink);padding:26px 30px;background:var(--tag)"><p style="font:600 14px/1 var(--mono);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">Recommendation · prepared ${esc(k.prepared)}, submitted in Week 10</p><p style="font-size:23px;line-height:1.45;margin:0">${inline(k.recommendation)}</p></div>

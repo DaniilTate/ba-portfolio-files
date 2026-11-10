@@ -97,7 +97,15 @@ p { margin: 0 0 1em; }
 .ctag__role { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
 .ctag__name { font: 800 clamp(40px, 4.4vw, 60px)/.95 var(--display); text-transform: uppercase; margin-bottom: 14px; }
 .ctag p { margin: 0; max-width: 32em; }
-@media (max-width: 760px) { .pair { grid-template-columns: 1fr; } }
+.pair--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 760px) { .pair, .pair--3 { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 760px) {
+  .rmap, .rmap tbody, .rmap tr, .rmap td { display: block; width: auto; min-width: 0; }
+  .rmap tr:first-child { display: none; }
+  .rmap tr { padding: 12px 0; border-bottom: 2px solid var(--ink); }
+  .rmap td { border: 0 !important; padding: 3px 0 !important; }
+  .rmap td::before { content: attr(data-h); display: block; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+}
 
 /* shelf of week tags */
 .shelf { position: relative; }
