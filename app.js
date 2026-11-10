@@ -2,8 +2,9 @@ const app = document.getElementById('app');
 const NAV = [['/records', 'Records'], ['/assignments', 'Assignments'], ['/capstone', 'Capstone'], ['/companies', 'Companies'], ['/evidence', 'Evidence'], ['/about', 'About']];
 const EMAIL = '262697@astanait.edu.kz';
 // Original files and the A2 video live in a public GitHub repository and are served through jsDelivr.
-let FILES = null; // set from /config.json
-const file = (p) => (FILES ? FILES + p : null);
+// jsDelivr refuses Word and PowerPoint files, so those come from raw.githubusercontent.com at the same commit.
+let FILES = null, OFFICE = null; // set from /config.json
+const file = (p) => (FILES ? (/\.(docx|pptx)$/i.test(p) && OFFICE ? OFFICE : FILES) + p : null);
 const DOCS = {
   1: 'records/KNIAZEV_AIB-2602_Weekly_Record_1', 2: 'records/KNIAZEV_AIB-2602_Weekly_Record_2', 3: 'records/KNIAZEV_AIB-2602_Weekly_Record_3',
   4: 'records/KNIAZEV_AIB-2602_Weekly_Record_4', 5: 'records/KNIAZEV_AIB-2602_Weekly_Record_5',
@@ -151,8 +152,8 @@ function home() {
   </section>
 
   <section class="section"><div class="wrap">
-    <div class="section__head"><div><h2 class="h2">Transfer verdicts so far</h2>
-      <p class="intro">What Magnum should do with each Carrefour practice, as argued in Assignment 1. Company A is evidence, not a model to copy.</p></div></div>
+    <div class="section__head"><div><h2 class="h2">Transfer verdicts</h2>
+      <p class="intro">What Magnum should do with each Carrefour practice, first argued in Assignment 1 and kept in the Capstone transfer matrix. Company A is evidence, not a model to copy.</p></div></div>
     <div class="verdicts">${VERDICTS.map(([t, e, c, v, why]) => `<div class="vrow"><div><h3>${t}</h3><p>${why}</p></div>
       <p class="evid">${esc(e)} ${c.map((n) => `<a class="cite" href="/evidence#s${n}" data-link>[${n}]</a>`).join(' ')}</p>
       <span class="stamp stamp--${v}">${v}</span></div>`).join('')}</div>
@@ -366,7 +367,7 @@ function capstone(path) {
     <ol class="rows">${CAP.map(([id, t, wk]) => {
       const w = D.weeks.find((x) => x.n === wk);
       const st = wk === 10 ? (k ? 'filed' : 'upcoming') : w.status;
-      const src = wk === 10 ? 'New at Capstone stage: in the deck (slides 14 and 17) and report (§8, §9)' : `Grows from Week ${wk}: ${w.artifact}`;
+      const src = wk === 10 ? `New at Capstone stage: deck slide ${id === '§8' ? '14' : '17'} and report ${id}` : `Grows from Week ${wk}: ${w.artifact}`;
       const inner = `<span class="row__n" style="font-size:56px">${id}</span><div><h3>${t}</h3><p>${esc(src)}</p></div>${status(st)}`;
       return `<li class="row is-${st}">${st === 'filed' && wk !== 10 ? `<a href="/records/week-${wk}" data-link>${inner}</a>` : `<div>${inner}</div>`}</li>`;
     }).join('')}</ol>
@@ -553,5 +554,6 @@ const [cfg, data] = await Promise.all([
   fetch('/content.json').then((r) => r.json()),
 ]);
 FILES = cfg.files || null;
+OFFICE = cfg.office || null;
 D = data;
 render(false);
