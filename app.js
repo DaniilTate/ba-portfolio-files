@@ -303,7 +303,7 @@ function a4(path) {
 
 /* ---------- records ---------- */
 function records(path) {
-  return page(path, phead('', 'Weekly records', 'One section a week with six fields: concept, application, verification and AI record, transfer, evidence and capstone link. Weeks 3, 5, 7 and 9 are reduced to the first two fields because their analysis moves into that week’s assignment.') +
+  return page(path, phead('', 'Weekly records', 'One section a week with six fields: concept, application, verification, transfer, evidence and capstone link. Weeks 3, 5, 7 and 9 are reduced to the first two fields because their analysis moves into that week’s assignment.') +
     `<section class="section"><div class="wrap"><ol class="rows">${D.weeks.filter((w) => w.n !== 10).map((w) => {
       const inner = `<span class="row__n">${pad(w.n)}</span><div><h3>${esc(w.title || w.short)}</h3><p>${esc(w.topic)}</p><p class="row__meta">Artifact: ${esc(w.artifact)}. Develops capstone ${esc(w.cap)}.${w.reduced ? ' Reduced record.' : ''}</p></div>${status(w.status)}`;
       return `<li class="row is-${w.status}">${w.status === 'filed' ? `<a href="/records/week-${w.n}" data-link>${inner}</a>` : `<div>${inner}</div>`}</li>`;

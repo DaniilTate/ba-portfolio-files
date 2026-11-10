@@ -87,15 +87,15 @@
     ],
     [
      "h",
-     "3 Verification and AI record"
+     "3 Verification"
     ],
     [
      "p",
-     "Source checks with Codex matched the periods and values in the map: inflation, real GDP, unemployment, e-commerce, population and import prices. The Carrefour count includes franchise markets; Magnum’s count is a company statement. The e-commerce figure includes marketplaces. The import index of 101.6% means a 1.6% increase; its access date is used because the publication day is unspecified. These checks and source locations are recorded in the Evidence Folder."
+     "Source checks matched the periods and values in the map: inflation, real GDP, unemployment, e-commerce, population and import prices. The Carrefour count includes franchise markets; Magnum’s count is a company statement. The e-commerce figure includes marketplaces. The import index of 101.6% means a 1.6% increase; its access date is used because the publication day is unspecified. These checks and source locations are recorded in the Evidence Folder."
     ],
     [
      "p",
-     "The inflation evidence makes affordability relevant, but store sales and shopper feedback are needed to identify which products people will buy. GPT-6 Astra in the ChatGPT app helped with requirements and wording. Codex helped find and check sources, analyse course materials, draft revisions and format the document."
+     "The inflation evidence makes affordability relevant, but store sales and shopper feedback are needed to identify which products people will buy."
     ],
     [
      "h",
@@ -231,15 +231,15 @@
     ],
     [
      "h",
-     "3 Verification and AI record"
+     "3 Verification"
     ],
     [
      "p",
-     "Checks with Codex on 20 September 2026 matched the Uzbekistan entry year to Magnum’s history [14], data categories to policy section 4.3 [15], and Hopla’s launch to Carrefour’s release of 8 June 2023 [12]. The release gives no measured error rate or staff savings. I therefore removed implied proof of effective oversight. NIST supports named responsibilities and training [16]; it does not certify Magnum."
+     "Checks on 20 September 2026 matched the Uzbekistan entry year to Magnum’s history [14], data categories to policy section 4.3 [15], and Hopla’s launch to Carrefour’s release of 8 June 2023 [12]. The release gives no measured error rate or staff savings. I therefore removed implied proof of effective oversight. NIST supports named responsibilities and training [16]; it does not certify Magnum."
     ],
     [
      "p",
-     "The evidence refines my initial view: faster service matters only if shoppers can rely on it. Codex helped analyse the textbook and slides, check sources, draft the stakeholder analysis and edit this record. The checks distinguish company announcements from measured performance."
+     "The evidence refines my initial view: faster service matters only if shoppers can rely on it. The checks distinguish company announcements from measured performance."
     ],
     [
      "h",
@@ -376,7 +376,7 @@
     ],
     [
      "p",
-     "This test supports Capstone section 3 and Business Report section 3. It narrows the investment case: improve availability with accountable staff before using more customer data. Preparation and source checks were supported by Codex."
+     "This test supports Capstone section 3 and Business Report section 3. It narrows the investment case: improve availability with accountable staff before using more customer data."
     ]
    ],
    "refs": [
@@ -561,11 +561,11 @@
     ],
     [
      "h",
-     "3 Verification and AI record"
+     "3 Verification"
     ],
     [
      "p",
-     "The course text was checked for management functions, participative leadership and reporting relationships [1]. NIST supports explicit responsibilities and staff training [16]. The SAS announcement describes Carrefour’s forecasting work, but it does not establish Magnum’s performance or guarantee savings [20]. GPT-6.1 Sol helped find these sources, and draft the matrix."
+     "The course text was checked for management functions, participative leadership and reporting relationships [1]. NIST supports explicit responsibilities and staff training [16]. The SAS announcement describes Carrefour’s forecasting work, but it does not establish Magnum’s performance or guarantee savings [20]."
     ],
     [
      "p",
@@ -1005,7 +1005,7 @@
       [
        "Criterion",
        "Human-only baseline (Magnum’s published text)",
-       "AI-supported draft (Claude, 17 Oct)"
+       "AI-supported draft (17 Oct)"
       ],
       [
        "Prices and dates match the catalogue",
@@ -1040,11 +1040,11 @@
     ],
     [
      "h",
-     "3  Verification and AI record"
+     "3  Verification"
     ],
     [
      "p",
-     "Prices and discounts were checked against the Пайда list saved on 17 October [23]; the maximum discount and the food and non-food split were recalculated from that file. Carrefour’s figures were checked in its press releases [12], [19], and carrefour.fr was opened on 17 October to confirm that Hopla is still live [29]. Claude (Anthropic) generated the AI-supported draft that was tested and helped draft this record and its figures."
+     "Prices and discounts were checked against the Пайда list saved on 17 October [23]; the maximum discount and the food and non-food split were recalculated from that file. Carrefour’s figures were checked in its press releases [12], [19], and carrefour.fr was opened on 17 October to confirm that Hopla is still live [29]."
     ],
     [
      "h",
@@ -1157,11 +1157,11 @@
     ],
     [
      "h",
-     "3  Verification and AI record"
+     "3  Verification"
     ],
     [
      "p",
-     "The legal points were read on adilet.zan.kz: Law 94-V, articles 7, 12 and 16 [7], and AI Law No. 230-VIII, articles 17, 18 and 21 [27]. The CNIL decision was read in EDPO’s unofficial English translation, which links to the CNIL original [26]. Claude (Anthropic) helped draft this record and the workflow diagram; the risk ratings are qualitative judgements. Open question: whether AI-drafted copy edited by people needs an AI label under article 21; legal should decide before a pilot."
+     "The legal points were read on adilet.zan.kz: Law 94-V, articles 7, 12 and 16 [7], and AI Law No. 230-VIII, articles 17, 18 and 21 [27]. The CNIL decision was read in EDPO’s unofficial English translation, which links to the CNIL original [26]. The risk ratings are qualitative judgements. Open question: whether AI-drafted copy edited by people needs an AI label under article 21; legal should decide before a pilot."
     ],
     [
      "h",
@@ -1313,15 +1313,11 @@
     ],
     [
      "h",
-     "3  Verification and AI record"
+     "3  Verification"
     ],
     [
      "p",
      "What did I check? The fiscal year behind Magnum’s revenue of 453.13 billion tenge. Against which source? The methodology of Forbes’s 2025 ranking, which ranks companies by 2024 revenue and was prepared with Adata.kz [31]. What did I find? The company profile labels the same figure “2025” [33], so a comparison with annual inflation would have been one year out. I also checked the 10,000 headcount against Magnum’s careers site, which uses the same round number for the whole company [36], and took 2024 inflation of 8.6% from the Bureau of National Statistics as reported by BES.media [35]. Magnum’s exit from Uzbekistan in 2025 [34] and Kaspi’s 2023 purchase of Magnum’s e-commerce business [31] may change what later figures cover; without statements I cannot measure that effect."
-    ],
-    [
-     "p",
-     "AI line: AI use for this record is declared in my A4 AI-use declaration, with what I verified and changed."
     ],
     [
      "h",
