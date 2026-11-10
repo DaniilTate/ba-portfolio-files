@@ -89,11 +89,11 @@ function receipt() {
     ${r('Student', 'Kniazev Daniil')}${r('Group', 'AIB-2602')}${r('Company B', 'Magnum Cash&amp;Carry')}${r('Company A', 'Carrefour')}
     <hr class="receipt__rule">
     ${D.weeks.slice(0, 9).map((w) => r(`W${pad(w.n)} ${esc(w.short)}`, w.status === 'filed' ? 'Filed' : 'Revising', w.status === 'filed' ? `/records/week-${w.n}` : null)).join('')}
-    ${r('W10 Capstone', 'Ready', '/capstone')}
     ${r('A1 Business report', 'Filed', '/assignments/business-report')}
     ${r('A2 Video essay', 'Filed', '/assignments/video-essay')}
     ${r('A3 Photo essay', 'Filed', '/assignments/photo-essay')}
     ${r('A4 Argumentative essay', 'Filed', '/assignments/argumentative-essay')}
+    ${r('Capstone', 'Ready', '/capstone')}
     <hr class="receipt__rule">
     <div class="receipt__total">${r('Records filed', `${filed} / 9`)}${r('Sources in folder', D.evidence.length)}${r('Verdicts issued', 5)}</div>
     <hr class="receipt__rule">
