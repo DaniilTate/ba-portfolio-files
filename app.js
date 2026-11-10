@@ -429,7 +429,7 @@ function about(path) {
       <div><dt>Group</dt><dd>AIB-2602</dd></div>
       <div><dt>University</dt><dd>Astana IT University, School of Digital Public Administration</dd></div>
       <div><dt>Course</dt><dd>Business Administration (BA 1204), 5 ECTS, trimester 1, 2026–2027</dd></div>
-      <div><dt>Instructor</dt><dd>Prof. Gaukhar Yeshenkulova</dd></div>
+      <div><dt>Instructors</dt><dd>Prof. Gaukhar Yeshenkulova<br>Prof. Zhumaldinova Dina</dd></div>
       <div><dt>Companies</dt><dd>Magnum Cash&amp;Carry and Carrefour</dd></div>
       <div><dt>Email</dt><dd><a href="mailto:${EMAIL}">${EMAIL}</a></dd></div>
     </dl>
