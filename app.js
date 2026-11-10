@@ -343,6 +343,8 @@ function capstone(path) {
   const base = 'capstone/KNIAZEV_AIB-2602_BA2026_Capstone_';
   const files = FILES && k ? [
     [file(base + 'Deck.pdf'), 'Business Impact Deck', 'PDF, 16:9, 16 content slides · open'],
+    ['/capstone/report', 'Executive Summary Report', 'Read on this site: nine sections, four tables, appendices A–D'],
+    [file(base + 'Video.mp4'), 'Video presentation', 'MP4, 12:42, subtitles burned in · open'],
     [file(base + 'Report.pdf'), 'Executive Summary Report', 'PDF, 5–7 pages plus appendices · open'],
     [file(base + 'Report.docx'), 'Executive Summary Report', 'DOCX · download'],
     [file(base + 'Evidence.pdf'), 'Evidence Folder', `PDF, complete IEEE list, ${D.evidence.length} sources · open`],
@@ -352,7 +354,8 @@ function capstone(path) {
   return page(path, phead('', 'Capstone', 'The final exam, worth 40% of the course: one recommendation for Magnum, expressed as a deck, a report and a video, with a 12-month roadmap and a live stress test at the defence.') + `
   ${k ? `<section class="section"><div class="wrap">
     <div class="card" style="border:2px solid var(--ink);padding:26px 30px;background:var(--tag)"><p style="font:600 14px/1 var(--mono);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">Recommendation · prepared ${esc(k.prepared)}, submitted in Week 10</p><p style="font-size:23px;line-height:1.45;margin:0">${inline(k.recommendation)}</p></div>
-    <ul class="kit" style="margin-top:28px">${files.map(([h, t, s2]) => `<li><a href="${h}" ${h.endsWith('.docx') ? 'download' : 'target="_blank" rel="noopener"'}><span>${t}</span><small>${s2}</small></a></li>`).join('')}<li><div style="padding:14px 0"><span>Video presentation</span><small> 10–15 minutes · script ready, recording in progress</small></div></li></ul>
+    ${FILES ? `<figure class="player" style="margin-top:28px"><video id="capv" controls playsinline preload="metadata" poster="${file(base + 'Video_poster.jpg')}"><source src="${file(base + 'Video.mp4')}" type="video/mp4">Your browser cannot play this video. <a href="${file(base + 'Video.mp4')}">Download the MP4</a>.</video><figcaption style="color:var(--graphite)">Video presentation, 12:42. The recommendation comes first, then one slide per section, the business case, the roadmap and the stress test.</figcaption></figure>` : ''}
+    <ul class="kit" style="margin-top:28px">${files.map(([h, t, s2]) => `<li><a href="${h}" ${h.startsWith('/') ? 'data-link' : h.endsWith('.docx') ? 'download' : 'target="_blank" rel="noopener"'}><span>${t}</span><small>${s2}</small></a></li>`).join('')}</ul>
   </div></section>
   <section class="section section--shelf"><div class="wrap">
     <div class="section__head"><div><h2 class="h2">12-month roadmap</h2><p class="intro">Nine gated initiatives. Every initiative also has a KPI with baseline and target, a dependency, a cost basis and a risk control; the deck and report carry all seven elements.</p></div></div>
@@ -440,6 +443,39 @@ function about(path) {
   </div></section>`);
 }
 
+function caprep(path) {
+  const r = D.capreport;
+  if (!r) return notFound(path);
+  const base = 'capstone/KNIAZEV_AIB-2602_BA2026_Capstone_';
+  const slug = (t) => 'r-' + t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const head = (t) => { const m = t.match(/^(\w{1,2})\s{2}(.*)$/) || t.match(/^Appendix (\w)\.\s+(.*)$/); return m ? [m[1], m[2]] : ['', t]; };
+  const render = (list) => list.map(([k, v]) => {
+    if (k === 'h') { const [n, t] = head(v); return `<h2 class="field" id="${slug(v)}"><span class="field__n">${esc(n)}</span>${esc(t)}</h2>`; }
+    if (k === 't') return table(v, 'ev');
+    if (k === 'cap') return `<p class="table-cap">${esc(v)}</p>`;
+    if (k === 'note') return `<p class="note">${inline(v)}</p>`;
+    return `<p>${inline(v)}</p>`;
+  }).join('');
+  const tocOf = (list) => list.filter(([k]) => k === 'h').map(([, v]) => { const [n, t] = head(v); return `<li><a href="#${slug(v)}">${esc(n ? n + ' ' : '')}${esc(t)}</a></li>`; }).join('');
+  return page(path, `<section class="phead"><div class="wrap">
+    <p class="crumbs"><a href="/capstone" data-link>Capstone</a> / Report</p>
+    <h1 class="h1">Executive summary report</h1>
+    <dl class="meta"><dt>Title</dt><dd>${esc(r.title.replace(/^Executive Summary Report:\s*/, ''))}</dd><dt>Exam</dt><dd>Final exam, AI-Enabled Business Impact Capstone, Week 10</dd><dt>Prepared</dt><dd>25 October 2026, 5–7 pages plus appendices A–D</dd><dt>Companies</dt><dd>Company A: Carrefour. Company B: Magnum Cash&amp;Carry</dd></dl>
+    <div class="actions no-print"><button class="btn btn--ink" data-print>Save as PDF</button>${dl(base + 'Report', 'Report')}</div>
+  </div></section>
+  <div class="wrap doc">
+    <aside class="doc__toc no-print"><p>Sections</p><ol><li><a href="#r-summary">Executive summary</a></li>${tocOf(r.blocks)}<li><a href="#refs">References</a></li>${tocOf(r.appendix)}</ol></aside>
+    <article class="prose">
+      <h2 class="field" id="r-summary"><span class="field__n">ES</span>Executive summary</h2>
+      ${r.exec.map(([lead, t]) => `<p>${lead ? `<b>${esc(lead)}.</b> ` : ''}${inline(t)}</p>`).join('')}
+      ${render(r.blocks)}
+      <section class="refs" id="refs"><h2>References</h2><ol>${r.refs.map(([n, t]) => `<li><b><a class="cite" href="/evidence#s${n}" data-link>[${n}]</a></b><span>${linkify(t)}</span></li>`).join('')}</ol>
+      <p class="note">${esc(r.refnote)}</p></section>
+      ${render(r.appendix)}
+    </article>
+  </div>`);
+}
+
 function notFound(path, msg) {
   return page(path, phead('', 'Not on the shelf', '') + `<section class="section"><div class="wrap"><div class="placeholder"><strong>${msg || 'This page does not exist.'}</strong> Go back to the <a href="/records" data-link>weekly records</a> or the <a href="/" data-link>home page</a>.</div></div></section>`);
 }
@@ -458,6 +494,7 @@ function route(path) {
   if (path === '/assignments/photo-essay') return [a3('/assignments'), 'Assignment 3 photo essay'];
   if (path === '/assignments/argumentative-essay') return [a4('/assignments'), 'Assignment 4 argumentative essay'];
   if (path === '/capstone') return [capstone(path), 'Capstone'];
+  if (path === '/capstone/report') return [caprep('/capstone'), 'Capstone executive summary report'];
   if (path === '/companies') return [companies(path), 'Companies'];
   if (path === '/evidence') return [evidence(path), 'Evidence folder'];
   if (path === '/about') return [about(path), 'About'];

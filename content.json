@@ -2767,5 +2767,879 @@
    "Changed later: the financial assumption that matters most is now Magnum’s out-of-stock baseline, not revenue per employee.",
    "In the Capstone: §5c places graduates in the review layer; §7 tests the out-of-stock assumption first."
   ]
+ },
+ "capreport": {
+  "title": "Executive Summary Report: How Magnum Cash&Carry Should Operate and Compete with AI",
+  "byline": "Kniazev Daniil · Group AIB-2602 · 25 October 2026 · Company A: Carrefour · Company B: Magnum Cash&Carry",
+  "exec": [
+   [
+    "Recommendation",
+    "Magnum Cash&Carry should use AI as a supervised drafting and forecasting layer, not as a decision-maker: pilot demand forecasting and AI-drafted Пайда messages behind named human sign-off, adopt Carrefour-style data controls first, and scale only where measured shelf availability, forecast error and price accuracy beat today’s process. Personalisation from purchase histories is delayed and autonomous order approval is rejected."
+   ],
+   [
+    "Why",
+    "Three findings from ten weeks of evidence carry the recommendation. First, Magnum’s 2024 revenue fell to 453.13 billion tenge, 5.6% lower in nominal terms and about 13% lower in real terms [31], [35], so every expansion must be paid for by measured results. Second, each AI test in this portfolio was right on calculation or drafting and wrong on judgment: the Week 6 message offered a delivery channel whose prices were unconfirmed, and the Week 8 interpretation read a rounded headcount as rising productivity. Human review is therefore part of the design, not a temporary safeguard. Third, Carrefour shows the direction, with Gemini deployed to 250,000 employees and AI agents in central functions [38], and also the cost of weak data governance: a €2.25 million CNIL fine [26]. Magnum should take the logic, not the scale."
+   ],
+   [
+    "Cost and return",
+    "The 12-month programme costs about 14.9 million tenge ($32,948), 0.003% of 2024 revenue, mostly staff time (Table 3). Year 1 is net negative by design, about 11.5 million tenge, because the pilots buy evidence. Recovered gross margin covers running costs once about 16 branch-categories meet the 98% availability target; one category across all 230 branches would recover about 210 million tenge a year. The weakest assumption is the baseline out-of-stock rate, which Magnum does not publish and the pilot must measure."
+   ],
+   [
+    "Roadmap and conditions",
+    "Months 0–3 set controls, reconcile stock records and run a four-week message pilot; months 4–8 run the forecasting pilot and extend messaging and finance reporting; months 9–12 scale forecasting to ten branches, test catalogue search and review personalisation readiness. Every initiative has an owner, KPI, cost basis and stop rule (Appendix A). The recommendation changes if stock records cannot be reconciled, which moves forecasting to DELAY, or if Magnum’s measured out-of-stock rate is below about 3%, which narrows the programme to messaging and finance."
+   ]
+  ],
+  "blocks": [
+   [
+    "h",
+    "1  Business context"
+   ],
+   [
+    "p",
+    "Magnum is a Kazakhstan grocery retailer serving households and business buyers through retail and wholesale [14], with more than 200 stores [3] and, by its careers site, more than 230 branches in 14 cities [36]. Week 1 framed the opportunity around affordability, with annual inflation at 9.8% [4] and e-commerce at 14.3% of retail trade [8]. Four things are now known that Week 1 did not know. Magnum’s 2024 revenue was 453.13 billion tenge with 9,599 employees, down 5.6% on 2023 in nominal terms and 13.1% in real terms [31], [32], [35]. It publishes no financial statements, so profitability, liquidity and debt cannot be assessed from outside (Week 8), and any business case must be validated on internal data. Its footprint has narrowed: the Uzbekistan stores that Week 2 treated as regional experience are being wound down [34], and Kaspi has controlled Magnum’s e-commerce business since 2023 [31]. Finally, the weakest customer touchpoint is the step from promotion to purchase, not the depth of discounts (Week 6). The question is therefore less which AI to buy than which tests Magnum can afford to run, and stop."
+   ],
+   [
+    "h",
+    "2  Environmental and stakeholder analysis"
+   ],
+   [
+    "p",
+    "Week 2 ranked customers, regulators and employees first; each obligation now maps to a design decision in §4 and §6. Customers need accurate prices and available products, so every AI-drafted message passes an automatic price check and a named sign-off, and search will only show items with checked availability. Regulators set the data boundary: Law 94-V requires consent, storage of personal data in Kazakhstan and conditions for cross-border transfer [7], and the AI Law of November 2025 regulates AI systems and how users are informed [27]. Only public promotion lists and aggregate sales therefore enter AI tools, and personalisation is delayed. Employees must catch errors without pressure to approve them, so they receive training, a recorded right to override a forecast and a quarterly fallback drill. Suppliers need accurate product facts and fair treatment, so Carrefour’s supplier-charter principle is applied through Magnum’s existing corporate rules [21], [22]. Owners need spending that stops when evidence fails, which the stage gates in §8 provide, and communities bear food waste, which becomes a pilot KPI linked to SDG target 12.3 [17]. Two external pressures frame all of this: falling real revenue [31], [35] and a labour market in which routine clerical work is the most exposed to generative AI [40]."
+   ],
+   [
+    "h",
+    "3  Business model"
+   ],
+   [
+    "p",
+    "Magnum creates value through availability and affordability, and captures it through the margin left after wages, premises and logistics (Weeks 1 and 3). As an LLP its participants’ general meeting is the highest body [18], so a stage-gated programme fits its governance: each expansion is a separate, recorded decision. The proposed operating model does not change how Magnum creates or captures value. It adds no new revenue stream and no paid AI service; it works on the existing model in three places. Fewer empty shelves recover sales that are lost today, clearer promotions convert more of the discount value Magnum already pays for, and checked data reduce waste and correction time. This resolves the potential conflict with §7: the business case counts only recovered gross margin from availability, not revenue from personalisation, which stays delayed, nor unmeasured message effects. Table 1 consolidates the transfer verdicts reached over the term."
+   ],
+   [
+    "cap",
+    "Table 1. Transfer verdicts for Carrefour practices"
+   ],
+   [
+    "t",
+    [
+     [
+      "Practice at Carrefour",
+      "Verdict",
+      "Grounds for Magnum",
+      "Record"
+     ],
+     [
+      "AI demand forecasting (SAS) [20]",
+      "PILOT",
+      "Proven elsewhere, not locally; stock records must reconcile first",
+      "W3–W5, A2"
+     ],
+     [
+      "AI-written product copy, 2,000+ sheets [12]",
+      "ADAPT",
+      "Weekly Пайда messages with price check, Kazakh review, no personal data",
+      "W6, A3"
+     ],
+     [
+      "Data controls after the CNIL fine [26]",
+      "ADOPT",
+      "Retention limits, AI notice and opt-out fit Law 94-V and the AI Law [7], [27]",
+      "W7, A3"
+     ],
+     [
+      "Supplier ethics charter [21]",
+      "ADOPT",
+      "Applied through Magnum’s corporate rules [22]",
+      "W3, A1"
+     ],
+     [
+      "Hopla catalogue assistant [12], [29]",
+      "ADAPT",
+      "Kazakh and Russian questions, checked availability only, staff help kept",
+      "W1–W3, A1"
+     ],
+     [
+      "AI agents in central functions [38]",
+      "ADAPT",
+      "Finance reporting on internal ledgers with the four checks",
+      "W8"
+     ],
+     [
+      "Smart-store cameras and labels [37], [38]",
+      "DELAY",
+      "About €150 m capital programme; availability baseline and camera privacy first",
+      "Capstone"
+     ],
+     [
+      "Personalisation and ChatGPT shopping [19]",
+      "DELAY",
+      "Consent, retention and labelling decisions first",
+      "W2, W3, W7, A3"
+     ],
+     [
+      "Autonomous order approval",
+      "REJECT",
+      "A wrong recommendation must not become a purchase commitment",
+      "W3, A1"
+     ]
+    ]
+   ],
+   [
+    "note",
+    "Verdicts reached in the records cited; catalogue search moved from PILOT (Week 2) to ADAPT (Week 3) once the question became language and availability rather than whether search works."
+   ],
+   [
+    "h",
+    "4  Human–AI operating model"
+   ],
+   [
+    "p",
+    "The Week 4 matrix allocated one process. Table 2 extends the same four categories across the functions the proposal touches. The rule is the same everywhere: AI may produce a draft, a forecast or a flag, but a named role commits money, sends a message or signs a figure. Fixed rules, not AI, validate inputs and keep logs; staff and AI interpret together where local knowledge matters, such as promotions and supplier constraints. Each function has a review point, an escalation path and a manual fallback, so a failure stops one AI output rather than the business process. Approval authority never moves to software, which is the boundary that makes autonomous ordering a REJECT rather than a later phase."
+   ],
+   [
+    "p",
+    "This allocation constrains the rest of the proposal. Because a named person approves every order and message, the review layer is where the workforce investment goes (§5c): retraining planners, copywriters and analysts rather than hiring AI specialists. Because review takes time, review hours are a cost line in §7 and grow with each scaled branch, which is why break-even depends on reaching about 16 branch-categories. And because each function needs a working fallback before it starts, every roadmap gate in §8 includes a passed fallback drill. Removing human approval would cut cost but would also remove the only control that caught the errors found in Weeks 6 and 8."
+   ],
+   [
+    "cap",
+    "Table 2. Consolidated human–AI allocation across functions"
+   ],
+   [
+    "t",
+    [
+     [
+      "Function",
+      "AI executes, human reviews",
+      "Human-only decision",
+      "Review → escalation",
+      "Fallback"
+     ],
+     [
+      "Replenishment",
+      "Forecasts and draft quantities",
+      "Category manager approves orders",
+      "Planner, store staff → supply-chain lead; IT for faults",
+      "Manual order from physical count"
+     ],
+     [
+      "Пайда promotions",
+      "Three draft messages from the public promo list",
+      "Brand manager approves the send",
+      "Copywriter, Kazakh reviewer → brand manager; legal for labelling",
+      "Approved message template"
+     ],
+     [
+      "Finance reporting",
+      "Calculations and draft commentary",
+      "Finance manager signs the KPI report",
+      "Analyst applies four checks → finance manager",
+      "Manual monthly report"
+     ],
+     [
+      "Catalogue search (months 9–12)",
+      "Answers with checked-availability items only",
+      "Service manager handles complaints",
+      "Store staff → digital product lead",
+      "Ordinary search and staff help"
+     ],
+     [
+      "Training (HR)",
+      "Draft training material from pilot errors",
+      "HR lead approves curriculum",
+      "Category manager reviews content → HR lead",
+      "Classroom drill"
+     ]
+    ]
+   ],
+   [
+    "note",
+    "Fixed-rule automation (input checks, logs) and Human + AI interpretation sit inside each row, as in the Week 4 matrix. Proposed roles; Magnum’s internal allocation is not public."
+   ],
+   [
+    "h",
+    "5a  Operations and supply chain"
+   ],
+   [
+    "p",
+    "In the current state, which still has to be confirmed with staff, the category manager reconciles stock and promotion records by hand before setting quantities; this is the bottleneck, and during promotions recorded stock can differ from shelf stock (Weeks 3 and 5). In the future state fixed rules validate inputs, AI drafts forecasts and quantities, planners and store staff adjust for promotions and delivery days, and the category manager approves every order. The KPI chain runs from here to §7 and §8: shelf availability of at least 98%, a 10% relative reduction in forecast error (WAPE), and 10% less waste value and staff cost per order. Availability drives the §7 benefit, and its baseline is measured in months 0–3 because Magnum does not publish one; the 8.3% world-average out-of-stock rate [43] is only a placeholder. If recorded and shelf stock still differ after reconciliation, forecasting moves to DELAY, as the Week 3 stress test set out. Carrefour tested its SAS forecasting for 18 months before deployment [20], which supports a pilot, not a roll-out."
+   ],
+   [
+    "h",
+    "5b  Marketing and customer"
+   ],
+   [
+    "p",
+    "Magnum’s customers are budget-conscious households, for whom saving is the core value at 9.8% inflation [4]; Magnum Club claims more than two million members [24]. Week 6 found the weak point between consideration and purchase: the Пайда page promised “up to 60%” when the maximum was 53% and offered no next step [23]. The AI-supported draft met all four quality criteria against one for the published text, but checking caught an unconfirmed Magnum Go offer and a non-food deal. Under the proposal customers receive more specific, accurate weekly messages with a clear store or delivery option, written from the public promotion list only. Three controls govern the change: an automatic price check and named sign-off before any send, at least one food staple in every message, and native review of the Kazakh text. The AI-use notice follows legal’s decision under the AI Law [27]. Personalisation stays delayed: Carrefour’s fine for keeping the loyalty data of 28 million inactive customers [26] shows the cost of moving faster than the controls. Message KPIs are tracked but not monetised in §7."
+   ],
+   [
+    "h",
+    "5c  Workforce and career capability"
+   ],
+   [
+    "p",
+    "The operating model changes what people do more than how many are needed. It demands three capabilities in the review layer: reading forecast error and margin, applying the four data checks from Week 8 (period, rounding, inflation and scope), and explaining an override to a manager (Week 9). Retrain: in months 0–3 fifteen pilot staff, from the category manager and planner to the copywriters, Kazakh reviewer and CRM and brand managers, receive 16 hours of training and a fallback drill; finance analysts follow in months 4–8 and planners in each scaled branch in months 9–12. Hire or redeploy: one data steward, half-time from month 0 and full-time from month 9, preferably redeployed from IT, owns data reconciliation; no AI specialists are hired in year 1. Redeploy: time saved on manual reconciliation and drafting moves to shelf checks and customer service, the logic Carrefour states for its smart-store programme [37]. Entry routes such as Magnum Start [36] should feed planner and analyst roles in the review layer, because drafting is the most exposed entry task [40] while seven in ten employers treat analytical thinking as essential [41]. No roles are cut in year 1."
+   ],
+   [
+    "h",
+    "6  Governance, verification and assurance"
+   ],
+   [
+    "p",
+    "The Week 7 register covered one workflow; Appendix C extends it to the whole model. The consolidated position rests on five controls applied in every function. Data boundary: personal data never enter external AI tools, segments are built inside the CRM, and the person responsible for personal data audits prompt logs monthly [7]. Named sign-off: every order, message and reported figure has a recorded approver, in line with NIST’s emphasis on defined roles and responsibilities [16]. Pre-release checks: fixed rules block stale inputs, price mismatches and unflagged discrepancies. Bias rules: a food staple in every message, results compared by language, and forecast error reviewed by branch so that smaller branches are not systematically under-served. Fallback: each function has a manual route, from physical-count orders to message templates and manual reports, practised quarterly. Escalation is uniform: the reviewer stops the output, the function owner decides, IT handles technical faults, the person responsible for personal data handles data issues and legal decides labelling questions. Security rests on ten licensed seats and keeping customer data out of scope. Residual risks are human error under time pressure and the unresolved labelling question under the AI Law [27]; both are tracked rather than assumed away."
+   ],
+   [
+    "p",
+    "Verification follows the standard used throughout the portfolio: isolate one number, find an independent source, compare period, units and entity, and record the outcome even when it disagrees. Applied to AI output, this produced the four checks of Week 8. They found that the arithmetic of an AI-supported interpretation was right while its reading of ranking years, a rounded headcount and old margins was wrong, which is the pattern the assurance design expects in production."
+   ],
+   [
+    "h",
+    "7  Business case and KPIs"
+   ],
+   [
+    "p",
+    "The programme costs about 14.9 million tenge over 12 months (Table 3), 0.003% of 2024 revenue [31]. Most of the cost is people, valued at the Bureau of National Statistics’ wages for Q2 2026: 851,076 tenge a month in ICT and 451,524 tenge in trade [44]; licences are ten standard seats at $20 a month [45] converted at 452.59 tenge per dollar [46]. The return is recovered gross margin from fewer stockouts. With 230 branches [36], an average branch sells about 1.97 billion tenge a year, and a pilot category with an assumed 8% share about 158 million. Industry evidence puts the average out-of-stock rate at 8.3% and the resulting sales loss at 4% [43]; cutting out-of-stocks to 2% recovers about 4.8 million tenge of sales, or 0.91 million tenge of gross margin at 19.1%, Carrefour’s latest margin used as a proxy [2]. If every gate is passed, year 1 returns about 3.4 million tenge, so it is net negative by about 11.5 million. Running costs of 14.0 million tenge a year at ten-branch scale are covered from about 16 branch-categories, so year 2 needs a second category in the ten branches; one category in all 230 branches would return about 210 million tenge a year against 86 million of running cost. The case is most sensitive to Magnum’s actual out-of-stock rate: at 4%, break-even rises to about 48 branch-categories. Appendix B lists each assumption and its verification; Table 4 sets out the KPI dashboard."
+   ],
+   [
+    "cap",
+    "Table 3. Twelve-month cost, benefit and break-even"
+   ],
+   [
+    "t",
+    [
+     [
+      "Cost line (12 months)",
+      "m ₸",
+      "Basis"
+     ],
+     [
+      "AI assistant licences",
+      "1.09",
+      "10 seats × $20 × 12 months × 452.59 ₸/$ [45], [46]"
+     ],
+     [
+      "Data steward (redeployed or hired)",
+      "6.81",
+      "0.5 FTE in months 0–8, 1 FTE in months 9–12, at the ICT wage of 851,076 ₸ [44]"
+     ],
+     [
+      "IT work: sales and stock exports",
+      "1.28",
+      "0.25 FTE × 6 months × ICT wage [44]"
+     ],
+     [
+      "IT work: catalogue search test",
+      "0.64",
+      "0.25 FTE × 3 months × ICT wage [44]"
+     ],
+     [
+      "Training and fallback drills",
+      "0.86",
+      "15 pilot staff × 16 h + 10 branch planners × 8 h, trade wage per hour [44]"
+     ],
+     [
+      "Review time for forecasts",
+      "1.47",
+      "0.25 FTE in months 4–8, 0.5 FTE in months 9–12, trade wage [44]"
+     ],
+     [
+      "Legal and personal-data review",
+      "0.29",
+      "100 h × all-sector wage per hour [44]"
+     ],
+     [
+      "Contingency 20%",
+      "2.49",
+      "Uncosted employer charges and estimate error"
+     ],
+     [
+      "Total",
+      "14.91",
+      "$32,948; 0.003% of 2024 revenue [31]"
+     ],
+     [
+      "Benefit per branch-category",
+      "0.91",
+      "Gross margin a year: 1.97 bn ₸ × 8% × (8.3% − 2%) × 4%/8.3% × 19.1% [2], [36], [43]"
+     ],
+     [
+      "Break-even",
+      "15.3",
+      "Branch-categories at target to cover 14.0 m ₸ running cost a year"
+     ],
+     [
+      "Sensitivity",
+      "48",
+      "Break-even if Magnum’s baseline out-of-stock rate is 4%"
+     ]
+    ]
+   ],
+   [
+    "note",
+    "Own calculation from the sources cited; the benefit applies only where the 98% target is met."
+   ],
+   [
+    "cap",
+    "Table 4. KPI dashboard: baselines, targets and owners"
+   ],
+   [
+    "t",
+    [
+     [
+      "KPI",
+      "Baseline",
+      "Target",
+      "Owner",
+      "Type"
+     ],
+     [
+      "Shelf availability, pilot category",
+      "Measured in months 0–3 (placeholder 91.7%)",
+      "≥98% by month 8",
+      "Category manager",
+      "Lagging"
+     ],
+     [
+      "Forecast error (WAPE)",
+      "Months 0–3",
+      "−10% relative",
+      "Planner",
+      "Leading"
+     ],
+     [
+      "Waste value, pilot category",
+      "Months 0–3",
+      "−10%",
+      "Store manager",
+      "Lagging"
+     ],
+     [
+      "Price-check pass before send",
+      "Week 6 sample: one untrue claim",
+      "100%",
+      "Brand manager",
+      "Leading"
+     ],
+     [
+      "Price complaints a week",
+      "4 weeks before the pilot",
+      "No increase",
+      "CRM manager",
+      "Lagging"
+     ],
+     [
+      "Orders from message links",
+      "Current messages",
+      "At least baseline",
+      "CRM manager",
+      "Lagging"
+     ],
+     [
+      "Personal data in prompt audits",
+      "No audit today",
+      "0",
+      "Person responsible for personal data",
+      "Leading"
+     ],
+     [
+      "Unflagged discrepancies in KPI report",
+      "Not measured",
+      "0",
+      "Finance manager",
+      "Leading"
+     ],
+     [
+      "Pilot staff trained and drilled",
+      "0 of 15",
+      "15 of 15 by month 3",
+      "HR lead",
+      "Leading"
+     ]
+    ]
+   ],
+   [
+    "note",
+    "Leading indicators warn before results arrive; lagging indicators confirm them. Baselines marked “months 0–3” are measured before any AI output is used."
+   ],
+   [
+    "h",
+    "8  12-month roadmap"
+   ],
+   [
+    "p",
+    "Nine initiatives sit in three horizons; Appendix A gives all seven required elements for each. Months 0–3 use existing capability and budget: set the governance controls and data boundary; reconcile stock records, measure baselines and train the pilot team; and pilot AI-drafted Пайда messages for four weeks. Months 4–8 depend on that work: the forecasting pilot starts only if records reconcile and the fallback drill is passed, weekly messaging extends only after a 100% price-check pass rate, and AI-assisted finance reporting starts once the data steward controls ledger extracts. Months 9–12 need conditions that do not yet exist: scaling forecasting to ten branches needs 98% availability and a 10% WAPE reduction in the pilot, catalogue search needs reliable availability data, and personalisation is only a readiness review because retention limits, consent and the labelling decision must come first. Every initiative traces to a record: forecasting to Weeks 3–5, messaging to Weeks 6–7, finance reporting to Week 8 and training to Week 9. The first action is the data boundary and stock reconciliation, because every later gate depends on them."
+   ],
+   [
+    "h",
+    "9  Strategic transfer stress test: readiness"
+   ],
+   [
+    "p",
+    "The recommendation rests on robust and contingent assumptions. Robust: named sign-off, the data boundary and the manual fallbacks hold under every published shock category, because they are designed for failure. Contingent: Magnum’s baseline out-of-stock rate must be high enough for forecasting to pay back; below about 3% scaling stops and the programme narrows to messaging and finance. Stock records must reconcile; if not, forecasting moves to DELAY. One AI tool must stay available at about $20 a seat; a cost shock or vendor loss raises break-even but leaves governance unchanged, and templates keep campaigns running. Appendix D sets out, for each shock category, what holds, what changes, what I would abandon and what I would need to know first. My position has narrowed across the term, from “pilot forecasting” in A2 to a portfolio of gated tests whose scale depends on measured availability."
+   ],
+   [
+    "p",
+    "A rehearsed example shows the method. Suppose the AI drafts a Пайда message with a wrong price and it reaches customers. The data boundary and the forecasting pilot still hold, because neither depends on messaging. What changes is that AI messaging pauses, the template fallback takes over and the price check is tested for how the error passed. I would abandon weekly AI messaging until the root cause is fixed, and before restarting I would need to know whether the check failed or was bypassed, because the first is a tool problem and the second a governance one."
+   ]
+  ],
+  "refs": [
+   [
+    2,
+    "Carrefour, “Q2 2026 sales and H1 2026 results,” Jul. 23, 2026. [Online]. Available: https://www.carrefour.com/sites/default/files/2026-07/Press%20release%20Carrefour%20Q2%20%26%20H1%202026.pdf"
+   ],
+   [
+    3,
+    "Magnum Cash&Carry, “How to get a job at Magnum,” Jul. 1, 2026. [Online]. Available: https://hr.magnum.kz/blog/kak-ustroitsya-na-rabotu-v-magnum-poshagovaya-instruktsiya-dlya-kandidatov/"
+   ],
+   [
+    4,
+    "Bureau of National Statistics of Kazakhstan, “Inflation in the Republic of Kazakhstan August 2026,” Sep. 1, 2026. [Online]. Available: https://stat.gov.kz/en/industries/economy/prices/publications/514353/"
+   ],
+   [
+    7,
+    "Republic of Kazakhstan, “On Personal Data and their Protection,” May 21, 2013, Law No. 94-V, arts. 5, 7, 12, 16. [Online]. Available: https://adilet.zan.kz/rus/docs/Z1300000094"
+   ],
+   [
+    8,
+    "Bureau of National Statistics of Kazakhstan, “E-commerce in the Republic of Kazakhstan 2025,” May 25, 2026. [Online]. Available: https://stat.gov.kz/en/industries/economy/local-market/publications/488906/"
+   ],
+   [
+    12,
+    "Carrefour, “Carrefour integrates OpenAI technologies and launches a generative AI powered shopping experience,” Jun. 8, 2023. [Online]. Available: https://www.carrefour.com/sites/default/files/2023-06/Press%20Release%20-%20Carrefour%20integrates%20OpenAI%20technologies%20and%20launches%20a%20generative%20AI-powered%20shopping%20experience%20%281%29.pdf"
+   ],
+   [
+    14,
+    "Magnum Cash&Carry, “About us,” n.d. [Online]. Available: https://hr.magnum.kz/en/about-company/"
+   ],
+   [
+    16,
+    "NIST, “Artificial Intelligence Risk Management Framework AI RMF 1.0,” NIST AI 100-1, Jan. 2023, GOVERN 2.1–2.3. [Online]. Available: https://doi.org/10.6028/NIST.AI.100-1"
+   ],
+   [
+    17,
+    "United Nations, “Goal 12,” n.d., target 12.3. [Online]. Available: https://sdgs.un.org/goals/goal12"
+   ],
+   [
+    18,
+    "Republic of Kazakhstan, “About limited and additional liability partnerships,” Apr. 22, 1998, Law No. 220-I, arts. 2 and 41. [Online]. Available: https://old.adilet.zan.kz/eng/docs/Z980000220_"
+   ],
+   [
+    19,
+    "Carrefour, “Carrefour devient le premier retailer européen à proposer de faire ses courses sur ChatGPT,” Mar. 26, 2026. [Online]. Available: https://www.carrefour.com/sites/default/files/2026-03/Communique%CC%81%20de%20presse%20-%20Carrefour%20devient%20le%20premier%20retailer%20europe%CC%81en%20a%CC%80%20proposer%20de%20faire%20ses%20courses%20sur%20ChatGPT%20.pdf"
+   ],
+   [
+    20,
+    "SAS, “Carrefour s’appuie sur l’Intelligence Artificielle de l’éditeur SAS pour optimiser la gestion de sa supply chain et réduire le gaspillage des produits alimentaires,” Jan. 14, 2019. [Online]. Available: https://www.sas.com/fr_fr/news/press-releases/france/2019/janvier/carrefour-intelligence-artificielle-editeur-sas-optimiser-gestion-supply-chain-reduire-gaspillage-produits-alimentaires.html"
+   ],
+   [
+    21,
+    "Carrefour, “Carrefour Group Suppliers Ethics Charter,” 2024 edition. [Online]. Available: https://www.carrefour.com/sites/default/files/2025-07/Carrefour%20Group%20Suppliers%20Ethic%20Charter%202024.pptx%20%281%29.pdf"
+   ],
+   [
+    22,
+    "Magnum Cash&Carry, “Corporate rules,” n.d. [Online]. Available: https://magnum-space.magnum.kz/public/corporate/index_ru.html"
+   ],
+   [
+    23,
+    "Magnum Cash&Carry, “Magnum Пайда: Новая неделя – новые скидки,” promotion page, Oct. 15–21, 2026. Accessed: Oct. 17, 2026. [Online]. Available: https://magnum.kz/stocks/magnum-paida?city=astana"
+   ],
+   [
+    24,
+    "Magnum Cash&Carry, “Magnum Club,” n.d. Accessed: Oct. 14, 2026. [Online]. Available: https://magnum.kz/magnumclub?city=almaty"
+   ],
+   [
+    26,
+    "CNIL, “Sanctions de 2 250 000 euros et de 800 000 euros pour les sociétés CARREFOUR FRANCE et CARREFOUR BANQUE,” Nov. 26, 2020 (unofficial English translation by EDPO). [Online]. Available: https://edpo.com/cnil-gdpr-fine-carrefour-france"
+   ],
+   [
+    27,
+    "Republic of Kazakhstan, “On Artificial Intelligence,” Nov. 17, 2025, Law No. 230-VIII. [Online]. Available: https://adilet.zan.kz/rus/docs/Z2500000230"
+   ],
+   [
+    29,
+    "Carrefour, “Hopla” shopping assistant on Carrefour.fr, n.d. Accessed: Oct. 17, 2026. [Online]. Available: https://www.carrefour.fr/"
+   ],
+   [
+    31,
+    "Forbes Kazakhstan, “75 крупнейших частных компаний Казахстана — 2025,” Dec. 8, 2025. [Online]. Available: https://forbes.kz/articles/75-krupneyshih-chastnyh-kompaniy-kazahstana-2025-0c8cc0"
+   ],
+   [
+    32,
+    "Forbes Kazakhstan, “75 крупнейших частных компаний Казахстана,” Dec. 11, 2024. [Online]. Available: https://forbes.kz/articles/75-krupneyshih-chastnyh-kompaniy-kazahstana-b6bc9f"
+   ],
+   [
+    34,
+    "Forbes Kazakhstan, “Magnum уходит из Узбекистана,” Jun. 19, 2025. [Online]. Available: https://forbes.kz/articles/magnum-uhodit-iz-uzbekistana-7279f0"
+   ],
+   [
+    35,
+    "BES.media, “8,6 вместо 6–8%: инфляция в Казахстане превысила ожидания,” Jan. 5, 2025. [Online]. Available: https://bes.media/news/86-vmesto-6-8-inflyatsiya-v-kazahstane-previsila-ozhidaniya/"
+   ],
+   [
+    36,
+    "Magnum Cash&Carry, “Magnum HR,” careers website, n.d. Accessed: Oct. 24, 2026. [Online]. Available: https://hr.magnum.kz/"
+   ],
+   [
+    37,
+    "Vusion and Carrefour, “Carrefour and Vusion join forces to deploy the smart store at scale,” press release, Feb. 18, 2026. [Online]. Available: https://echanges.dila.gouv.fr/OPENDATA/AMF/ACT/2026/02/FCACT078336_20260218.pdf"
+   ],
+   [
+    38,
+    "S. Lauchlan, “How Carrefour is following Walmart’s lead as its 2030 AI-enabled transformation kicks in,” diginomica, Feb. 23, 2026. [Online]. Available: https://diginomica.com/how-carrefour-following-walmarts-lead-its-2030-ai-enabled-transformation-kicks"
+   ],
+   [
+    40,
+    "P. Gmyrek et al., “Generative AI and jobs: A refined global index of occupational exposure,” ILO Working Paper 140, May 2025. [Online]. Available: https://www.ilo.org/publications/generative-ai-and-jobs-refined-global-index-occupational-exposure"
+   ],
+   [
+    41,
+    "World Economic Forum, “The Future of Jobs Report 2025,” Jan. 2025. [Online]. Available: https://www.weforum.org/publications/the-future-of-jobs-report-2025/digest/"
+   ],
+   [
+    43,
+    "Food Marketing Institute, Grocery Manufacturers of America and CIES – The Food Business Forum, “New industry study explores root causes of global out-of-stock dilemma,” news release, Oct. 14, 2002. [Online]. Available: https://fmi.org/newsroom/news-archive/view/2002/10/14/new-industry-study-explores-root-causes-of-global-out-of-stock-dilemma"
+   ],
+   [
+    44,
+    "Bureau of National Statistics of Kazakhstan, “Average monthly nominal wage of employees, Q2 2026,” Sep. 2, 2026. [Online]. Available: https://stat.gov.kz/ru/industries/labor-and-income/stat-wags/publications/514625/"
+   ],
+   [
+    45,
+    "OpenAI, “ChatGPT Business pricing,” n.d. Accessed: Oct. 25, 2026. [Online]. Available: https://openai.com/business/pricing/"
+   ],
+   [
+    46,
+    "mybuh.kz, “Курсы валют на 20 октября 2026 г.” (official National Bank of Kazakhstan rate), Oct. 20, 2026. [Online]. Available: https://mybuh.kz/news/kursy-valyut-na-20-oktyabrya-2026-g/"
+   ]
+  ],
+  "refnote": "Numbers follow the cumulative Evidence Folder, so a source keeps one number across the records, assignments and this Capstone.",
+  "appendix": [
+   [
+    "h",
+    "Appendix A. 12-month roadmap: all seven elements for each initiative"
+   ],
+   [
+    "t",
+    [
+     [
+      "H",
+      "Action",
+      "Owner",
+      "KPI baseline → target",
+      "Dependency",
+      "Cost and basis",
+      "Risk → control",
+      "Decision gate",
+      "Trace"
+     ],
+     [
+      "0–3\n#1",
+      "Set the governance controls and data boundary: approval log, prompt-log audit, retention rule, AI-use notice draft, legal decision on labelling",
+      "Person responsible for personal data",
+      "Personal data found in monthly prompt audits: no audit today → 0 in every audit; approval log 100% complete",
+      "None; starts now",
+      "100 h legal and DPO time and 2 seats ≈ 0.51 m ₸ ([44]–[46])",
+      "Controls exist only on paper → audit results reported monthly to the head of marketing",
+      "Continue if audits are clean; stop all AI drafting if personal data appear in prompts",
+      "W7, A3"
+     ],
+     [
+      "0–3\n#2",
+      "Reconcile stock and promotion records in one store and category; measure baselines; train 15 pilot staff",
+      "Category manager with the data steward",
+      "Recorded vs shelf stock match: unknown → ≥98% of SKUs; baselines for availability, WAPE and waste; training 0 → 15",
+      "Data steward assigned; IT sales and stock export",
+      "Data steward 0.5 FTE and IT 0.25 FTE for 3 months, 240 training hours ≈ 2.56 m ₸ ([44])",
+      "Records do not reconcile → forecasting moves to DELAY (Week 3 rule)",
+      "Start forecasting if the match is ≥98% and the fallback drill is passed; otherwise extend reconciliation",
+      "W3–W5, W9"
+     ],
+     [
+      "0–3\n#3",
+      "Pilot AI-drafted Пайда messages for four weeks behind an automatic price check and named sign-off",
+      "Brand manager",
+      "Price-check pass before send: Week 6 sample had one untrue claim → 100%; price complaints: 4-week baseline → no increase",
+      "Data boundary live (initiative 1)",
+      "4 licence seats ≈ 0.43 m ₸ a year ([45], [46]); review replaces drafting time",
+      "Wrong price or claim → automatic check, sign-off, template fallback",
+      "Extend if 100% pass and complaints flat; stop if a wrong price reaches customers",
+      "W6, W7, A3"
+     ],
+     [
+      "4–8\n#4",
+      "Pilot AI demand forecasting with draft quantities in one store and category; the manager approves every order",
+      "Category manager",
+      "Shelf availability: month-3 baseline → ≥98%; WAPE −10%; waste value −10%",
+      "Initiative 2 gate passed",
+      "Review 0.25 FTE, data steward 0.5 FTE, IT 0.25 FTE and 2 seats ≈ 3.55 m ₸ ([44]–[46])",
+      "Confident but wrong quantities → input checks, approval, DELAY trigger",
+      "Scale if all three targets are met; stop if availability is below baseline two weeks running",
+      "W3–W5, A2"
+     ],
+     [
+      "4–8\n#5",
+      "Extend AI messaging to every week with Kazakh review, the food-staple rule and the AI notice",
+      "CRM manager",
+      "Orders from message links: pre-pilot baseline → at least baseline; weeks with a staple: 100%",
+      "Initiative 3 gate; legal labelling decision",
+      "Within existing seats; Kazakh review about 2 h a week in the current copy role",
+      "Drift to non-food deals or weaker Kazakh copy → staple rule, results by language",
+      "Continue after 8 weeks at or above baseline; stop if price complaints rise",
+      "W6, W7"
+     ],
+     [
+      "4–8\n#6",
+      "Introduce an AI-assisted monthly KPI report with the four-check discrepancy audit",
+      "Finance manager",
+      "Unflagged discrepancies per report: not measured → 0; preparation time: month-4 baseline → −20%",
+      "Data steward controls ledger extracts",
+      "2 seats ≈ 0.22 m ₸; analyst time neutral ([45], [46])",
+      "Period, rounding, inflation or scope errors (Week 8) → four checks and sign-off",
+      "Continue after three clean months; stop if an unflagged error reaches management",
+      "W8, A4"
+     ],
+     [
+      "9–12\n#7",
+      "Scale forecasting to ten branches in the pilot category; plan a second category for year 2",
+      "Supply-chain lead",
+      "Availability ≥98% in at least 7 of 10 branches; WAPE −10%",
+      "Precondition: pilot targets met and each branch reconciled; data steward at 1 FTE",
+      "Review 0.5 FTE, data steward 1 FTE, 80 training hours ≈ 4.52 m ₸ ([44])",
+      "Data quality differs by branch → reconcile each branch before go-live",
+      "Add a second category if break-even (≈16 branch-categories) is in reach; stop if fewer than 7 branches hit target",
+      "W5, W8"
+     ],
+     [
+      "9–12\n#8",
+      "Test Kazakh and Russian catalogue search on items with checked availability",
+      "Digital product lead",
+      "Successful searches vs ordinary search: measured in test → higher in both languages",
+      "Precondition: reliable availability data in pilot branches; privacy review",
+      "0.25 FTE ICT × 3 months ≈ 0.64 m ₸ ([44])",
+      "Unavailable or unsuitable items suggested → availability filter, staff help kept",
+      "Expand if success beats ordinary search in both languages; stop on any harmful recommendation",
+      "W1–W3, A1"
+     ],
+     [
+      "9–12\n#9",
+      "Review personalisation readiness without launching it",
+      "Person responsible for personal data with the CRM manager",
+      "Retention rule approved, inactive-member data purged, opt-out live: 0 of 3 → 3 of 3",
+      "Precondition: labelling decision under the AI Law; six months of clean audits",
+      "Within the 100 h legal and DPO time of initiative 1",
+      "Scope creep into purchase histories → board approval required",
+      "Propose a year-2 pilot only if all three controls are live and audited clean",
+      "W2, W7, A3"
+     ]
+    ]
+   ],
+   [
+    "note",
+    "H = horizon in months. Costs sum to the §7 subtotal of 12.43 m ₸ before the 20% contingency. Trace = the record or assignment each initiative grows from."
+   ],
+   [
+    "h",
+    "Appendix B. Business-case assumptions and their verification"
+   ],
+   [
+    "t",
+    [
+     [
+      "Assumption",
+      "Value",
+      "Source",
+      "Verification status"
+     ],
+     [
+      "Magnum revenue, 2024",
+      "453.13 bn ₸",
+      "Forbes Kazakhstan [31]",
+      "Verified: ranking methodology states 2024 revenue"
+     ],
+     [
+      "Number of branches",
+      "230",
+      "Magnum careers site [36]",
+      "Company claim; consistent with “200+ stores” [3]"
+     ],
+     [
+      "Gross margin",
+      "19.1%",
+      "Carrefour H1 2026 [2]",
+      "Verified for Carrefour; Magnum margin unknown, sensitivity shown"
+     ],
+     [
+      "Out-of-stock rate and sales loss",
+      "8.3%; 4% of sales",
+      "FMI, GMA and CIES study [43]",
+      "Verified source; global and dated (2002); replaced by Magnum baseline in months 0–3"
+     ],
+     [
+      "Pilot category share of branch sales",
+      "8%",
+      "Own assumption",
+      "Not verifiable externally; measured from sales data in month 1"
+     ],
+     [
+      "Wages, Q2 2026",
+      "851,076 ₸ ICT; 451,524 ₸ trade",
+      "Bureau of National Statistics [44]",
+      "Verified"
+     ],
+     [
+      "AI licence",
+      "$20 per seat a month",
+      "OpenAI pricing [45]",
+      "Verified on 25 Oct 2026"
+     ],
+     [
+      "Exchange rate",
+      "452.59 ₸ per $",
+      "National Bank rate, 20 Oct 2026 [46]",
+      "Verified"
+     ],
+     [
+      "Availability target",
+      "98%",
+      "Week 5 proposal",
+      "Decision gate, not a fact"
+     ],
+     [
+      "Staff-time estimates",
+      "FTE shares in Table 3",
+      "Own estimates",
+      "Checked against timesheets during the pilot"
+     ]
+    ]
+   ],
+   [
+    "h",
+    "Appendix C. Consolidated assurance position across the operating model"
+   ],
+   [
+    "t",
+    [
+     [
+      "Risk",
+      "Replenishment",
+      "Promotions",
+      "Finance reporting",
+      "Catalogue search"
+     ],
+     [
+      "Privacy",
+      "Aggregate sales only",
+      "Public promo list only; CRM segments",
+      "Internal ledgers, no customer data",
+      "No account data in queries"
+     ],
+     [
+      "Security",
+      "Licensed seats; export logs",
+      "Licensed seats",
+      "Restricted ledger extracts",
+      "Vendor review first"
+     ],
+     [
+      "Bias",
+      "WAPE by branch",
+      "Staple rule; results by language",
+      "Same checks every month",
+      "Error gap by language"
+     ],
+     [
+      "Reliability",
+      "Input checks; manager approval",
+      "Price check; sign-off",
+      "Four checks; sign-off",
+      "Checked-availability filter"
+     ],
+     [
+      "Accountability",
+      "Category manager",
+      "Brand manager",
+      "Finance manager",
+      "Service manager"
+     ],
+     [
+      "Escalation",
+      "Supply-chain lead; IT",
+      "Legal (labelling); DPO",
+      "Head of finance",
+      "Digital product lead"
+     ],
+     [
+      "Fallback",
+      "Physical-count order",
+      "Message template",
+      "Manual report",
+      "Ordinary search, staff"
+     ]
+    ]
+   ],
+   [
+    "h",
+    "Appendix D. Stress-test readiness by published shock category"
+   ],
+   [
+    "t",
+    [
+     [
+      "Shock category",
+      "Still holds",
+      "Changes",
+      "Would abandon",
+      "Need to know first"
+     ],
+     [
+      "Regulatory change",
+      "Data boundary, sign-off",
+      "Hosting of AI tools; notice wording",
+      "Any external tool touching aggregated data, if banned",
+      "Exact scope of the new rule"
+     ],
+     [
+      "Cost shock",
+      "Governance, pilots",
+      "Break-even rises; scaling slows",
+      "Messaging AI if cost exceeds time saved",
+      "New price and contract terms"
+     ],
+     [
+      "Data-quality failure",
+      "Messaging, finance checks",
+      "Forecasting moves to DELAY",
+      "Scaling in year 1",
+      "Which records fail, and why"
+     ],
+     [
+      "Partner or supplier loss",
+      "Templates and manual routes",
+      "Switch to another licensed tool",
+      "Vendor-specific features",
+      "Data export and switching time"
+     ],
+     [
+      "Demand change",
+      "Controls and KPIs",
+      "Retrain forecasts; message channels",
+      "Year-1 scale targets",
+      "Size and duration of the shift"
+     ],
+     [
+      "Capability loss",
+      "Templates, manual orders",
+      "Pause reconciliation; delay pilot",
+      "Parallel initiatives",
+      "Who can cover the data steward"
+     ],
+     [
+      "System incident",
+      "Stop rule and fallback",
+      "Pause the AI function; root cause",
+      "The failing use until fixed",
+      "How the error passed the checks"
+     ]
+    ]
+   ]
+  ]
  }
 }
