@@ -379,7 +379,7 @@ const c = (n) => `<a class="cite" href="/evidence#s${n}" data-link>[${n}]</a>`;
 function companies(path) {
   return page(path, phead('', 'Companies', 'Chosen in Week 1 and kept for the whole course. Both sell groceries and household goods, so practices can be compared.') + `
   <section class="section"><div class="wrap profiles">
-    <article class="profile profile--b"><div class="profile__head"><p class="ctag__role">Company B, the focal organisation</p><h2 class="ctag__name">Magnum Cash&amp;Carry</h2></div>
+    <article class="profile profile--b"><div class="profile__head profile__head--logo"><div><p class="ctag__role">Company B, the focal organisation</p><h2 class="ctag__name">Magnum Cash&amp;Carry</h2></div><img class="profile__logo" src="/files/logo-magnum.jpg" alt="Magnum Cash&amp;Carry logo" width="240" height="240"></div>
       <div class="profile__body"><dl>
         <dt>What it does</dt><dd>Kazakhstan retailer serving households, and businesses through wholesale ${c(14)}.</dd>
         <dt>Scale</dt><dd>More than 200 stores, company statement of 1 July 2026 ${c(3)}. Revenue of 453.13 billion tenge and 9,599 employees in 2024 ${c(31)}.</dd>
@@ -389,7 +389,7 @@ function companies(path) {
         <dt>Rules</dt><dd>Corporate rules on customer safety, supplier selection, product acceptance and reporting ${c(22)}.</dd>
         <dt>What I still need</dt><dd><ul><li>The detailed replenishment workflow, which is not public</li><li>Stock-record accuracy and forecast performance</li><li>Current financial statements: Magnum does not publish them. The last public figures are its 2016 bond reports ${c(47)}, ten years old, so Week 8 could not calculate ratios for 2024</li></ul></dd>
       </dl></div></article>
-    <article class="profile"><div class="profile__head"><p class="ctag__role">Company A, the comparison</p><h2 class="ctag__name">Carrefour</h2></div>
+    <article class="profile"><div class="profile__head profile__head--logo"><div><p class="ctag__role">Company A, the comparison</p><h2 class="ctag__name">Carrefour</h2></div><img class="profile__logo profile__logo--pad" src="/files/logo-carrefour.png" alt="Carrefour logo" width="300" height="240"></div>
       <div class="profile__body"><dl>
         <dt>What it does</dt><dd>International retailer, Carrefour SA, including franchised operations ${c(2)}.</dd>
         <dt>Scale</dt><dd>15,415 stores under its banners at 30 June 2026, franchise markets included ${c(2)}.</dd>
@@ -400,7 +400,7 @@ function companies(path) {
         <dt>Supplier conduct</dt><dd>Group Suppliers Ethics Charter, 2024 edition ${c(21)}.</dd>
         <dt>How I use it</dt><dd>As evidence of what can be tested, never as proof that Magnum would earn the same return. Announcements describe intended improvements, not measured results.</dd>
       </dl></div></article>
-  </div></section>`);
+  </div><div class="wrap"><p class="note" style="margin-top:18px">Logos are trademarks of Magnum Cash&amp;Carry LLP and Carrefour SA, shown only to identify the companies.</p></div></section>`);
 }
 
 /* ---------- evidence ---------- */

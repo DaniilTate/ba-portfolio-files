@@ -258,6 +258,14 @@ details.sheet[open] > summary { border-bottom: 2px solid var(--ink); background:
 .profile ul { margin: 6px 0 0; padding-left: 20px; font-size: 16.5px; }
 .profile li { margin-bottom: 6px; }
 @media (max-width: 860px) { .profiles { grid-template-columns: 1fr; } }
+.profile__head--logo { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.profile__logo { flex: none; display: block; width: auto; height: 76px; border: 2px solid var(--ink); }
+.profile__logo--pad { box-sizing: content-box; height: 60px; padding: 6px 8px; background: #fff; }
+.profile__head--logo > div { min-width: 0; }
+@media (max-width: 560px) {
+  .profile__head--logo { flex-direction: column-reverse; align-items: flex-start; gap: 14px; }
+  .profile__logo { height: 56px; } .profile__logo--pad { height: 42px; }
+}
 
 /* evidence */
 .filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 28px; }
